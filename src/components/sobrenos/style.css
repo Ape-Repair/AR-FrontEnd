@@ -1,0 +1,34 @@
+.sobreNos{
+    background-color: #051951;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+}
+
+.sobre{
+    width: 35%;
+}
+
+.dados{
+width: 35%;
+color: #fff;
+
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    padding: 5%;
+}
+
+.numDado{
+    font-size: 200%;
+    align-items: center;
+}
+
+.conteudo{
+    padding: 10px;
+    font-size: small;
+}

@@ -1,0 +1,27 @@
+.container {
+    width: 100vw;
+    height: 5vh;
+    background-color: #F18F01;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20%;
+    height: 100%;
+}
+
+.horarios {
+    padding: 2%;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    color: #ffff;
+}
+
+.horarios p {
+    padding: 2% 0%;
+    font-size: 70%;
+}

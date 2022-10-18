@@ -1,0 +1,28 @@
+.banner{
+    background-color: brown;
+    width: 100vw;
+    height: 80vh;
+    margin: 0;
+    /* background-image: url("../../assets/banner.png") */
+    
+}
+
+.informations{
+    padding: 10% 10%;
+    
+}
+
+.demostracao{
+    width: 40%;
+}
+
+.textoCentral{
+     font-size: 300%;
+     color: #fff;
+}
+
+.seuTempo {
+    color: #f18f01;
+}
+
+

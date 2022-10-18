@@ -1,0 +1,41 @@
+.nav {
+    width: 100vw;
+    height: 10vh;
+    background-color: #051951;
+}
+
+.navbar{
+    padding: 0px 10%;
+    height: 100%;
+    display: flex;
+}
+
+.logo{
+    height: 100%;
+    
+}
+
+.navegacao{
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 30px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
