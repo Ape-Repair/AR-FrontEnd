@@ -1,6 +1,6 @@
 .nav {
     width: 100vw;
-    height: 10vh;
+    height: 15vh;
     background-color: #051951;
 }
 
@@ -32,7 +32,7 @@ ul {
     display: block;
     color: white;
     text-align: center;
-    padding: 20px 30px;
+    padding: 10px 20px;
     text-decoration: none;
   }
   

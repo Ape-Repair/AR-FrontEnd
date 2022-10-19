@@ -5,9 +5,9 @@ function SobreNos() {
     return (
         <div className="sobreNos">
             <div className="sobre">
-                <h5> Sobre Nós</h5>
-                <h1>Tempo é OURO</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed 
+                <h5 className="titulo"> Sobre Nós</h5>
+                <h1 className="subtitulo">Tempo é OURO</h1>
+                <p className="texto">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed 
                     sapiente aliquid eaque, animi minus similique voluptas magnam beatae rerum ut 
                     molestiae maxime officiis nemo hic at eum aperiam itaque cum.</p>
 

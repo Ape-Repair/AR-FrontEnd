@@ -11,6 +11,19 @@
     width: 35%;
 }
 
+.titulo{
+    color: #F18F01;
+}
+
+.subtitulo{
+    color: #fff;
+}
+
+.texto{
+    color: #fff;
+    width: 30vw;
+}
+
 .dados{
 width: 35%;
 color: #fff;

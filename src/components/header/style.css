@@ -1,6 +1,6 @@
 .container {
     width: 100vw;
-    height: 5vh;
+    height: 10vh;
     background-color: #F18F01;
 }
 
@@ -13,7 +13,7 @@
 
 .horarios {
     padding: 2%;
-    width: 50%;
+    width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;

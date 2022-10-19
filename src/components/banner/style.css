@@ -1,15 +1,22 @@
 .banner{
     background-color: brown;
     width: 100vw;
-    height: 80vh;
+    height: 110vh;
     margin: 0;
-    /* background-image: url("../../assets/banner.png") */
+    background-image: url('../../assets/banner3.png')
     
 }
 
 .informations{
     padding: 10% 10%;
-    
+}
+
+.options{
+    color: #fff;
+}
+
+.icon{
+    color: #f18f01;
 }
 
 .demostracao{
