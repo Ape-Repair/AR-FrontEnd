@@ -1,8 +1,8 @@
 import React from "react";
-import Header from '../components/homepage/header';
-import NavBar from "../components/homepage/navbar";
-import Banner from "../components/homepage/banner";
-import SobreNos from "../components/homepage/sobrenos";
+import Header from '../components/header';
+import NavBar from "../components/navbar";
+import Banner from "../components/banner";
+import SobreNos from "../components/sobrenos";
 
 
 function HomePage() {

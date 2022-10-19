@@ -1,14 +1,10 @@
 import React from "react";
-import Header from "../homepage/header"
-import NavBar from "../homepage/navbar"
 import TextField from '@mui/material/TextField';
 
-function Cadastro() {
+function CadastroCliente() {
     return (
 
         <>
-            <Header />
-            <NavBar />
             <div className="">
                 <div className="cadastro">
                 <TextField sx={{ input: { "::placeholder": { color: "#051951" } } }} placeholder="Nome"/>
@@ -30,3 +26,5 @@ function Cadastro() {
 
     )
 }
+
+export default CadastroCliente;

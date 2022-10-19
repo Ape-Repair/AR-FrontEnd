@@ -1,12 +1,12 @@
+import  Router  from './routes/Router.jsx';
 import React from 'react';
-import HomePage from './pages/HomePage'
 
 
 function App() {
   return (
-   <>
-    <HomePage/>
-   </>
+
+    <Router/>
+
   );
 }
 
