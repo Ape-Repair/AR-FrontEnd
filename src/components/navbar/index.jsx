@@ -1,9 +1,13 @@
 import React from "react";
 import "./style.css"
 import logo from "../../assets/LogoApeRepair.png"
-import NavLink from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+
 
 function NavBar() {
+
+    const navigate = useNavigate();
+
     return (
 
         <nav className="nav">
@@ -12,12 +16,13 @@ function NavBar() {
 
                 <div className="navegacao">
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Sobre</a></li>
-                        <li><a href="">Projetos +</a></li>
-                        <li><a href="">Equipe</a></li>
-                        <li><a href="">Contato</a></li>
-                        {/* <li><div >Login</div><NavLink to="/cadastro-cliente">/cadastro+</NavLink></li> */}
+                        <li onClick={() => navigate("/")}><p>Home</p></li>
+                        <li><p>Sobre</p></li>                       
+                        <li><p>Equipe</p></li>
+                        <li><p>Contato</p></li>
+                        <li><p>Login</p></li>
+                        <li onClick={() => navigate("/cadastro-cliente")}><p>Cadastro</p></li>
+                        
                     </ul>
                 </div>
             </div>

@@ -4,11 +4,11 @@
     align-items: center;
     display: flex;
     width: 100%;
-    height: 80vh;
+    height: 70vh;
 }
 
 .sobre{
-    width: 35%;
+    width: 30%;
 }
 
 .titulo{
@@ -17,11 +17,12 @@
 
 .subtitulo{
     color: #fff;
+    width:70%;
 }
 
 .texto{
     color: #fff;
-    width: 50%;
+    width: 70%;
 }
 
 .dados{
@@ -43,5 +44,4 @@ color: #fff;
 
 .conteudo{
     padding: 10px;
-    font-size: small;
 }

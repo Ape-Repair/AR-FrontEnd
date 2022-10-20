@@ -22,27 +22,27 @@ function Banner() {
                 <div className="demostracao">
                     <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item xs={6} className="options" >
-                            <CheckCircleOutlineIcon className="icon" /> aaaaaaaaaaaa
+                            <CheckCircleOutlineIcon className="icon" /> Reformas Curtas
                             <hr />
                         </Grid>
                         <Grid item xs={6} className="options" >
-                            <CheckCircleOutlineIcon className="icon" /> aaaaaaaaaaaa
+                            <CheckCircleOutlineIcon className="icon" /> Montagem de móveis
                             <hr />
                         </Grid>
                         <Grid item xs={6} className="options" >
-                            <CheckCircleOutlineIcon className="icon" /> aaaaaaaaaaaa
+                            <CheckCircleOutlineIcon className="icon" /> Marcenaria
                             <hr />
                         </Grid>
                         <Grid item xs={6} className="options" >
-                            <CheckCircleOutlineIcon className="icon" /> aaaaaaaaaaaa
+                            <CheckCircleOutlineIcon className="icon" /> Encanamento
                             <hr />
                         </Grid>
                         <Grid item xs={6} className="options" >
-                            <CheckCircleOutlineIcon className="icon" /> aaaaaaaaaaaa
+                            <CheckCircleOutlineIcon className="icon" /> Elétrica
                             <hr />
                         </Grid>
                         <Grid item xs={6} className="options" >
-                            <CheckCircleOutlineIcon className="icon" /> aaaaaaaaaaaa
+                            <CheckCircleOutlineIcon className="icon" /> Hidráulica
                             <hr />
                         </Grid>
                     </Grid>

@@ -37,14 +37,14 @@ ul {
     float: left;
   }
   
-  li a {
+  li p {
     display: flex;
     color: white;
     text-align: center;
     padding: 10px 20px;
-    text-decoration: none;
+    cursor: pointer;
   }
   
-  li a:hover {
+  li p:hover {
     background-color: #111;
   }
