@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter, Routes,  Route} from "react-router-dom";
 import HomePage from '../pages/HomePage'
-import CadastrarCliente from '../pages/CadastroCliente'
+import Cadastrar from '../pages/Cadastro'
 
 
 function Router() {
@@ -11,7 +11,7 @@ function Router() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage/>}/>
-                <Route path="/cadastro-cliente" element={<CadastrarCliente/>}></Route>
+                <Route path="/cadastro" element={<Cadastrar/>}></Route>
             </Routes>
         
         </BrowserRouter>

@@ -1,19 +1,19 @@
 import React from "react";
 import Header from "../components/header";
 import NavBar from "../components/navbar";
-import CadastroCliente from "../components/cadastroCliente";
+import Cadastro from "../components/cadastro";
 
-function CadastrarCliente() {
+function Cadastrar() {
 
     return (
         <>
             <Header />
             <NavBar />
-            <CadastroCliente />
+            <Cadastro />
         </>
     )
 
 
 }
 
-export default CadastrarCliente;
+export default Cadastrar;
