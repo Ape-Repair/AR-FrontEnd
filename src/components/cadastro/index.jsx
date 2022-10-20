@@ -3,9 +3,8 @@ import "./style.css"
 import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
 import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
+import { NativeSelect } from "@mui/material";
 
 function CadastroCliente() {
 
@@ -44,13 +43,13 @@ function CadastroCliente() {
                         <TextField sx={{ input: { "::placeholder": { color: "#051951" } } }} placeholder="Sobrenome" />
                         <TextField sx={{ input: { "::placeholder": { color: "#051951" } } }} placeholder="Telefone" />
                         <TextField sx={{ input: { "::placeholder": { color: "#051951" } } }} placeholder="E-Mail" />
-                        <TextField sx={{ input: { "::placeholder": { color: "#051951" } } }} type='password'placeholder="Senha" />
-                        <TextField sx={{ input: { "::placeholder": { color: "#051951" } } }} type='password'placeholder="Confirmar Senha" />
+                        <TextField sx={{ input: { "::placeholder": { color: "#051951" } } }} type='password' placeholder="Senha" />
+                        <TextField sx={{ input: { "::placeholder": { color: "#051951" } } }} type='password' placeholder="Confirmar Senha" />
                         <h1>Residência</h1>
                         <TextField sx={{ input: { "::placeholder": { color: "#051951" } } }} placeholder="CEP" />
                         <div className="ruaNumero">
                             <TextField sx={{ width: "100%", input: { "::placeholder": { color: "#051951" } } }} placeholder="Rua" id="rua" />
-                            <TextField sx={{ input: { "::placeholder": {color: "#051951" } } }} type= 'Number'placeholder="N°" id="numero" />
+                            <TextField sx={{ input: { "::placeholder": { color: "#051951" } } }} type='Number' placeholder="N°" id="numero" />
                         </div>
 
                         <TextField sx={{ input: { "::placeholder": { color: "#051951" } } }} placeholder="Complemento" />
@@ -58,28 +57,36 @@ function CadastroCliente() {
                         {
                             formToggle && (
 
-                                <div>
+                                <div style={{ gap: '12px' , borderRadius: '3px', display: 'flex', flexDirection: 'column'}}>
                                     <h1>Dados Profissionais</h1>
                                     <InputLabel >Especialidade</InputLabel>
-                                    <Select
-                                        style={{ width: '100%' }}
+                                    <NativeSelect
+                                        style={{ width: '100%', border: '1px solid grey', gap: '12px' }}
                                         value={especialidadade}
                                         onChange={mundancaEspecialidade}
                                     >
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
-                                    </Select>
+                                        <option value={10}>Serviços Hidraulicos</option>
+                                        <option value={20}>Serviços Hidráulicos</option>
+                                        <option value={30}>Serviços de Ar Cordicionado</option>
+                                        <option value={40}>Instalações</option>
+                                        <option value={50}>Serviços de Ar Cordicionado</option>
+                                        <option value={60}>Decorações</option>
+                                        <option value={70}>Limpeza</option>
+                                        <option value={80}>Frete</option>
+                                        <option value={90}>Pintura</option>
+                                    </NativeSelect>
                                     <InputLabel >Especialidade</InputLabel>
-                                    <Select
-                                        style={{ width: '100%' }}
+                                    <NativeSelect
+                                        style={{ width: '100%', border: '1px solid grey', gap: '20px', display: 'flex' }}
                                         value={experiencia}
                                         onChange={mudancaExperiencia}
                                     >
-                                        <MenuItem value={10}>6 Meses</MenuItem>
-                                        <MenuItem value={20}>1 Ano</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
-                                    </Select>
+                                        <option value={10}>6 Meses</option>
+                                        <option value={20}>1 Ano</option>
+                                        <option value={30}>2 anos</option>
+                                        <option value={40}>4 anos</option>
+                                        <option value={50}>5+ anos</option>
+                                    </NativeSelect>
                                 </div>
                             )
                         }
