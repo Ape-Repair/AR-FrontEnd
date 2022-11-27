@@ -1,20 +1,19 @@
 import React from "react";
 import Header from "../components/header";
 import NavBar from "../components/navbar";
-import Cadastro from "../components/cadastro";
+import MenuEspecialidades from "../components/especialidades";
 
-function Cadastrar() {
+function Especialidades() {
 
     return (
         <>
             <Header />
             <NavBar />
-            <Cadastro />
-
+            <MenuEspecialidades/>
         </>
     )
 
 
 }
 
-export default Cadastrar;
+export default Especialidades;

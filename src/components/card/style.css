@@ -1,0 +1,68 @@
+
+.card {
+    background-color: #FFF;
+    width: 50%;
+    border-radius: 50px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.informacoes{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.contribuintes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 250px;
+    gap: 4px;
+}
+
+
+.imgIcon{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.nomes{
+    margin: 0;
+    color: #051951;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.funcionalidadePrestador{
+    margin: 0;
+    color: #F18F01;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.dadosPedidos{
+    background-color: #F18F01;
+    border-radius: 10px;
+    width: 60%;
+    height: 50px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.dadosDeAgendamento{
+    margin: 5px;
+    color: #FFF;
+}
+
+.x{
+    color: #051951;
+}

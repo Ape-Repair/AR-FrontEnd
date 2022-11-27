@@ -1,0 +1,14 @@
+.clienteDiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.provedoresSujestoes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

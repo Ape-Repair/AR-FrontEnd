@@ -1,20 +1,18 @@
 import React from "react";
 import Header from "../components/header";
 import NavBar from "../components/navbar";
-import Cadastro from "../components/cadastro";
+import MatchesCliente from "../components/matchesCliente";
 
-function Cadastrar() {
+function MatchCliente() {
 
     return (
         <>
             <Header />
             <NavBar />
-            <Cadastro />
-
+            <MatchesCliente/>
         </>
     )
 
-
 }
 
-export default Cadastrar;
+export default MatchCliente;
