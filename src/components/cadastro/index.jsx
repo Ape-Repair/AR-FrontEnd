@@ -28,14 +28,8 @@ function CadastroCliente() {
 
   const [especialidadade, setEspecialidade] = React.useState("");
 
-  const mundancaEspecialidade = (event) => {
+  const mudancaEspecialidade = (event) => {
     setEspecialidade(event.target.value);
-  };
-
-  const [experiencia, setExperiencia] = React.useState("");
-
-  const mudancaExperiencia = (event) => {
-    setExperiencia(event.target.value);
   };
 
   const handleSignup = () => {
@@ -116,7 +110,7 @@ function CadastroCliente() {
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               type="password"
-              placeholder="Confirmar ********"
+              placeholder="********"
               value={confirmarSenha}
               onChange={(e) => [
                 setConfirmarSenha(e.target.value),
@@ -170,6 +164,7 @@ function CadastroCliente() {
                   borderRadius: "3px",
                   display: "flex",
                   flexDirection: "column",
+                  paddingBottom: "20px",
                 }}
               >
                 <h1>Dados Profissionais</h1>
@@ -181,7 +176,7 @@ function CadastroCliente() {
                     gap: "12px",
                   }}
                   value={especialidadade}
-                  onChange={mundancaEspecialidade}
+                  onChange={mudancaEspecialidade}
                 >
                   <option value={10}>Serviços Hidraulicos</option>
                   <option value={20}>Serviços Hidráulicos</option>
@@ -193,28 +188,13 @@ function CadastroCliente() {
                   <option value={80}>Frete</option>
                   <option value={90}>Pintura</option>
                 </NativeSelect>
-                <InputLabel>Especialidade</InputLabel>
-                <NativeSelect
-                  style={{
-                    width: "100%",
-                    border: "1px solid grey",
-                    gap: "20px",
-                    display: "flex",
-                  }}
-                  value={experiencia}
-                  onChange={mudancaExperiencia}
-                >
-                  <option value={10}>6 Meses</option>
-                  <option value={20}>1 Ano</option>
-                  <option value={30}>2 anos</option>
-                  <option value={40}>4 anos</option>
-                  <option value={50}>5+ anos</option>
-                </NativeSelect>
               </div>
             )}
-            <Button onClick={handleSignup} variant="contained" style={{ backgroundColor: "#f18f01" }}>
+            <div>
+            <Button onClick={handleSignup} variant="contained" style={{ backgroundColor: "#f18f01", width: "100%" }}>
               Cadastre-se
             </Button>
+            </div>
           </div>
         </div>
       </div>

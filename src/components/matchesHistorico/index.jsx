@@ -12,7 +12,7 @@ function MatchesHistorico() {
 
             <div className="matches">
                 <h1 className="match">Seus Matches</h1>
-                {listaHistorico.map((x) => <CardHistorico nome={x.nome}/>)}
+                {listaHistorico.map((matches) => <CardHistorico nome={matches.nome}/>)}
             </div>
         </>
     )
