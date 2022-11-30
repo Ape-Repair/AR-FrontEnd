@@ -17,8 +17,10 @@ function CadastroCliente() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [street, setStreet] = useState("");
-  const [number, setNumber] = useState("");
+  const [number, setNumber] = useState(0);
   const [complement, setComplement] = useState("");
+  const [genre, setGenre] = useState("");
+  const [cpf, setCpf] = useState("");
   const [cep, setCep] = useState("");
   const [district, setDistrict] = useState("");
   const [city, setCity] = useState("");
@@ -27,9 +29,6 @@ function CadastroCliente() {
   const [especialidadade, setEspecialidade] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
-  const [formToggle, setFormToggle] = useState(false);
-
 
   const handleSignup = () => {
     if (
@@ -57,10 +56,11 @@ function CadastroCliente() {
     e.preventDefault();
     const novoCustomer = {
       name: name,
-      phone: phone,
       email: email,
       password: password,
-      confirmPassword: confirmPassword,
+      genre: genre,
+      cpf: cpf,
+      phone: phone,
       address: {
         street: street,
         number: number,
@@ -73,6 +73,7 @@ function CadastroCliente() {
     }
     const novoProvider = {
       name: name,
+      genre: genre,
       phone: phone,
       email: email,
       password: password,
@@ -90,7 +91,7 @@ function CadastroCliente() {
 
   if (toggle) {
     handleSignup();
-    await api.post(`https://cors-anywhere.herokuapp.com/http://localhost:8080/customers`, novoCustomer).then((resposta) => {
+    await api.post(`http://localhost:8080/customers`, novoCustomer).then((resposta) => {
       if(resposta.status === 201){
         alert("Cliente cadastrado com sucesso")
         navigate("/")
@@ -98,7 +99,7 @@ function CadastroCliente() {
     }).catch((erro) => console.log(erro))
   } else {
     handleSignup();
-    await api.post(`https://cors-anywhere.herokuapp.com/http://localhost:8080/providers`, novoProvider).then((resposta) => {
+    await api.post(`http://localhost:8080/providers`, novoProvider).then((resposta) => {
       if(resposta.status === 201){
         alert("Prestador cadastrado com sucesso")
         navigate("/")
@@ -118,7 +119,7 @@ function CadastroCliente() {
             <div className="toggle">
               <h2>Cliente</h2>
               <Switch
-                checked={formToggle}
+                checked={toggle}
                 onChange={(event) => setToggle(!toggle)}
               />
               <h2>Parceiro</h2>
@@ -131,6 +132,18 @@ function CadastroCliente() {
               placeholder="Nome"
               value={name}
               onChange={(e) => [setName(e.target.value), setError("")]}
+            />
+            <TextField
+              sx={{ input: { "::placeholder": { color: "#051951" } } }}
+              placeholder="Gênero"
+              value={genre}
+              onChange={(e) => [setGenre(e.target.value.toUpperCase()), setError("")]}
+            />
+            <TextField
+              sx={{ input: { "::placeholder": { color: "#051951" } } }}
+              placeholder="CPF"
+              value={cpf}
+              onChange={(e) => [setCpf(e.target.value), setError("")]}
             />
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
@@ -190,7 +203,7 @@ function CadastroCliente() {
               <TextField
                 sx={{ input: { "::placeholder": { color: "#051951" } } }}
                 type="Number"
-                placeholder="N°"
+                placeholder="Cidade°"
                 id="numero"
                 value={city}
               onChange={(e) => [setCity(e.target.value), setError("")]}
@@ -211,11 +224,11 @@ function CadastroCliente() {
             />
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
-              placeholder="Bairro"
+              placeholder="UF"
               value={uf}
-              onChange={(e) => [setUf(e.target.value), setError("")]}
+              onChange={(e) => [setUf(e.target.value.toUpperCase()), setError("")]}
             />
-            {formToggle && (
+            {toggle && (
               <div
                 style={{
                   gap: "12px",
