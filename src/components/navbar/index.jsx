@@ -7,9 +7,12 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import Switch from "@mui/material/Switch";
 
 
 function NavBar() {
+  const [toggle, setToggle] = useState(false);
+
   const boxLogin = {
     position: "absolute",
     top: "50%",
@@ -41,7 +44,7 @@ function NavBar() {
     login();
   };
 
-  function login(evento){
+  function login(evento) {
     evento.preventDefault();
     const dados = {
       email: evento.target.email.value,
@@ -49,7 +52,7 @@ function NavBar() {
     }
 
     api.post(`/login`, dados).then(res => {
-      if (res.data.role === "PROVIDER"){
+      if (res.data.role === "PROVIDER") {
         sessionStorage.setItem("id", res.data.id)
         navigate("/match-provedor");
       } else {
@@ -97,7 +100,17 @@ function NavBar() {
             onClose={() => setFormModalLogin(false)}
           >
             <Box sx={boxLogin}>
-              <h1>Login</h1>
+              <div className="toggleLogin">
+                <h1>Login</h1>
+                <div className="toggleModificarEntrada">
+                  <h2>Cliente</h2>
+                  <Switch
+                    checked={toggle}
+                    onChange={(event) => setToggle(!toggle)}
+                  />
+                  <h2>Parceiro</h2>
+                </div>
+              </div>
               <TextField
                 onChange={(e) => [setEmail(e.target.value), setError("")]}
                 value={email}
@@ -126,7 +139,7 @@ function NavBar() {
           </Modal>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 }
 
