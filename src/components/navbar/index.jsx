@@ -41,12 +41,15 @@ function NavBar() {
     login();
   };
 
-  function login(evento){
+  const login = async (evento) => {
     evento.preventDefault();
     const dados = {
       email: evento.target.email.value,
       password: evento.target.password.value,
     }
+
+//providers/login
+//customers/login
 
     api.post(`/login`, dados).then(res => {
       if (res.data.role === "PROVIDER"){
@@ -114,7 +117,6 @@ function NavBar() {
                 sx={{ input: { "::placeholder": { color: "#051951" } } }}
                 placeholder="Senha"
               />
-              <labelError>{error}</labelError>
               <Button
                 onClick={handleLogin}
                 variant="contained"
