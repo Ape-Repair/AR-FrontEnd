@@ -86,7 +86,8 @@ function CadastroCliente() {
         district: district,
         city: city,
         uf: uf
-      }
+      },
+      especialidadade: especialidadade
     }
 
   if (toggle) {
