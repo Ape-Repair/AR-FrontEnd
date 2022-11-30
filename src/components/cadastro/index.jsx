@@ -17,7 +17,7 @@ function CadastroCliente() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [street, setStreet] = useState("");
-  const [number, setNumber] = useState(0);
+  const [streetNumber, setStreetNumber] = useState(0);
   const [complement, setComplement] = useState("");
   const [genre, setGenre] = useState("");
   const [cpf, setCpf] = useState("");
@@ -39,7 +39,7 @@ function CadastroCliente() {
       !phone |
       !cep |
       !street |
-      !number |
+      !streetNumber |
       !complement |
       !district |
       !uf
@@ -63,7 +63,7 @@ function CadastroCliente() {
       phone: phone,
       address: {
         street: street,
-        number: number,
+        streetNumber: streetNumber,
         complement: complement,
         cep: cep,
         district: district,
@@ -80,7 +80,7 @@ function CadastroCliente() {
       confirmPassword: confirmPassword,
       address: {
         street: street,
-        number: number,
+        streetNumber: streetNumber,
         complement: complement,
         cep: cep,
         district: district,
@@ -90,7 +90,7 @@ function CadastroCliente() {
       especialidadade: especialidadade
     }
 
-  if (toggle) {
+  if (!toggle) {
     handleSignup();
     await api.post(`http://localhost:8080/customers`, novoCustomer).then((resposta) => {
       if(resposta.status === 201){
@@ -198,8 +198,8 @@ function CadastroCliente() {
                 type="Number"
                 placeholder="N°"
                 id="numero"
-                value={number}
-              onChange={(e) => [setNumber(e.target.value), setError("")]}
+                value={streetNumber}
+              onChange={(e) => [setStreetNumber(e.target.value), setError("")]}
               />
               <TextField
                 sx={{ input: { "::placeholder": { color: "#051951" } } }}
