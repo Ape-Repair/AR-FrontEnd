@@ -8,54 +8,104 @@ import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
 
 import "./style.css";
+import api from "../../api";
 
 function CadastroCliente() {
-  const [nome, setNome] = useState("");
-  const [sobrenome, setSobrenome] = useState("");
-  const [telefone, setTelefone] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [street, setStreet] = useState("");
+  const [number, setNumber] = useState("");
+  const [complement, setComplement] = useState("");
   const [cep, setCep] = useState("");
-  const [rua, setRua] = useState("");
-  const [numero, setNumero] = useState("");
-  const [complemento, setComplemento] = useState("");
-  const [bairro, setBairro] = useState("");
+  const [district, setDistrict] = useState("");
+  const [city, setCity] = useState("");
+  const [uf, setUf] = useState("");
+  const [toggle, setToggle] = useState(false);
+  const [especialidadade, setEspecialidade] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const [formToggle, setFormToggle] = useState(false);
 
-  const [especialidadade, setEspecialidade] = React.useState("");
-
-  const mudancaEspecialidade = (event) => {
-    setEspecialidade(event.target.value);
-  };
 
   const handleSignup = () => {
     if (
       !email |
-      !confirmarSenha |
-      !senha |
-      !nome |
-      !sobrenome |
-      !telefone |
+      !confirmPassword |
+      !password |
+      !name |
+      !phone |
       !cep |
-      !rua |
-      !numero |
-      !complemento |
-      !bairro
+      !street |
+      !number |
+      !complement |
+      !district |
+      !uf
     ) {
       setError("Preencha todos os campos");
       return;
-    } else if (senha !== confirmarSenha) {
+    } else if (password !== confirmPassword) {
       setError("As senhas não são iguais");
       return;
     }
-
-    alert("Usuário cadatrado com sucesso!");
-    navigate("/");
   };
+
+  async function cadastrarCustomer(e) {
+    e.preventDefault();
+    const novoCustomer = {
+      name: name,
+      phone: phone,
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
+      address: {
+        street: street,
+        number: number,
+        complement: complement,
+        cep: cep,
+        district: district,
+        city: city,
+        uf: uf
+      }
+    }
+    const novoProvider = {
+      name: name,
+      phone: phone,
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
+      address: {
+        street: street,
+        number: number,
+        complement: complement,
+        cep: cep,
+        district: district,
+        city: city,
+        uf: uf
+      }
+    }
+
+  if (toggle) {
+    handleSignup();
+    await api.post(`https://cors-anywhere.herokuapp.com/http://localhost:8080/customers`, novoCustomer).then((resposta) => {
+      if(resposta.status === 201){
+        alert("Cliente cadastrado com sucesso")
+        navigate("/")
+      }
+    }).catch((erro) => console.log(erro))
+  } else {
+    handleSignup();
+    await api.post(`https://cors-anywhere.herokuapp.com/http://localhost:8080/providers`, novoProvider).then((resposta) => {
+      if(resposta.status === 201){
+        alert("Prestador cadastrado com sucesso")
+        navigate("/")
+      }
+    }).catch((erro) => console.log(erro))
+  }
+}
 
   return (
     <>
@@ -69,7 +119,7 @@ function CadastroCliente() {
               <h2>Cliente</h2>
               <Switch
                 checked={formToggle}
-                onChange={() => setFormToggle(!formToggle)}
+                onChange={(event) => setToggle(!toggle)}
               />
               <h2>Parceiro</h2>
             </div>
@@ -79,20 +129,14 @@ function CadastroCliente() {
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               placeholder="Nome"
-              value={nome}
-              onChange={(e) => [setNome(e.target.value), setError("")]}
-            />
-            <TextField
-              sx={{ input: { "::placeholder": { color: "#051951" } } }}
-              placeholder="Sobrenome"
-              value={sobrenome}
-              onChange={(e) => [setSobrenome(e.target.value), setError("")]}
+              value={name}
+              onChange={(e) => [setName(e.target.value), setError("")]}
             />
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               placeholder="Telefone"
-              value={telefone}
-              onChange={(e) => [setTelefone(e.target.value), setError("")]}
+              value={phone}
+              onChange={(e) => [setPhone(e.target.value), setError("")]}
             />
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
@@ -104,16 +148,16 @@ function CadastroCliente() {
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               type="password"
               placeholder="********"
-              value={senha}
-              onChange={(e) => [setSenha(e.target.value), setError("")]}
+              value={password}
+              onChange={(e) => [setPassword(e.target.value), setError("")]}
             />
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               type="password"
               placeholder="********"
-              value={confirmarSenha}
+              value={confirmPassword}
               onChange={(e) => [
-                setConfirmarSenha(e.target.value),
+                setConfirmPassword(e.target.value),
                 setError(""),
               ]}
             />
@@ -132,30 +176,44 @@ function CadastroCliente() {
                 }}
                 placeholder="Rua"
                 id="rua"
-                value={rua}
-                onChange={(e) => [setRua(e.target.value), setError("")]}
+                value={street}
+                onChange={(e) => [setStreet(e.target.value), setError("")]}
               />
               <TextField
                 sx={{ input: { "::placeholder": { color: "#051951" } } }}
                 type="Number"
                 placeholder="N°"
                 id="numero"
-                value={numero}
-              onChange={(e) => [setNumero(e.target.value), setError("")]}
+                value={number}
+              onChange={(e) => [setNumber(e.target.value), setError("")]}
+              />
+              <TextField
+                sx={{ input: { "::placeholder": { color: "#051951" } } }}
+                type="Number"
+                placeholder="N°"
+                id="numero"
+                value={city}
+              onChange={(e) => [setCity(e.target.value), setError("")]}
               />
             </div>
 
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               placeholder="Complemento"
-              value={complemento}
-              onChange={(e) => [setComplemento(e.target.value), setError("")]}
+              value={complement}
+              onChange={(e) => [setComplement(e.target.value), setError("")]}
             />
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               placeholder="Bairro"
-              value={bairro}
-              onChange={(e) => [setBairro(e.target.value), setError("")]}
+              value={district}
+              onChange={(e) => [setDistrict(e.target.value), setError("")]}
+            />
+            <TextField
+              sx={{ input: { "::placeholder": { color: "#051951" } } }}
+              placeholder="Bairro"
+              value={uf}
+              onChange={(e) => [setUf(e.target.value), setError("")]}
             />
             {formToggle && (
               <div
@@ -176,22 +234,16 @@ function CadastroCliente() {
                     gap: "12px",
                   }}
                   value={especialidadade}
-                  onChange={mudancaEspecialidade}
+                  onChange={(e) => [setEspecialidade(e.target.value), setError("")]}
                 >
                   <option value={10}>Serviços Hidraulicos</option>
-                  <option value={20}>Serviços Hidráulicos</option>
-                  <option value={30}>Serviços de Ar Cordicionado</option>
-                  <option value={40}>Instalações</option>
-                  <option value={50}>Serviços de Ar Cordicionado</option>
-                  <option value={60}>Decorações</option>
-                  <option value={70}>Limpeza</option>
-                  <option value={80}>Frete</option>
-                  <option value={90}>Pintura</option>
+                  <option value={20}>Serviços Elétricos</option>
+                  <option value={30}>Serviços Gerais</option>
                 </NativeSelect>
               </div>
             )}
             <div>
-            <Button onClick={handleSignup} variant="contained" style={{ backgroundColor: "#f18f01", width: "100%" }}>
+            <Button onClick={cadastrarCustomer} variant="contained" style={{ backgroundColor: "#f18f01", width: "100%" }}>
               Cadastre-se
             </Button>
             </div>
