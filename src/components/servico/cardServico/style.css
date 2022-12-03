@@ -1,0 +1,32 @@
+.servicosDisponiveis{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardServico{
+    background-color: #fff;
+    width: 35%;
+    border-radius: 10px;
+}
+
+.id{
+    padding: 10px 10px;
+}
+
+.cardDescricaoServico{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+.especialidadeCardServico{
+    background-color: #F18F01;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.descricaoCardServico{
+    color: #F18F01;
+}

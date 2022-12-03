@@ -1,0 +1,13 @@
+.telaServicos{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.textoServico{
+    color: #fff;
+}
+
+.organizaCard{
+    display: flex;
+}
