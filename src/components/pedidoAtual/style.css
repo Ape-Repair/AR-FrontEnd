@@ -1,0 +1,11 @@
+.pedidoEscolhido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.teste{
+    width: 40%;
+    background-color: #fff;
+}

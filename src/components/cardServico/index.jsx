@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css"
 import Button from '@mui/material/Button';
 
-function cardServico(props) {
+function CardServico(props) {
 
     return (
         <>
@@ -23,4 +23,4 @@ function cardServico(props) {
 
 }
 
-export default cardServico;
+export default CardServico;

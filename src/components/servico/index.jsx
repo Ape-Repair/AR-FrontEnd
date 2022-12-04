@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 import Grid from '@mui/material/Grid';
-import CardServico from "./cardServico"
+import CardServico from "../cardServico"
 
 function Servico() {
 
