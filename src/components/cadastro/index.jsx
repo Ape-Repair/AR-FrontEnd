@@ -2,9 +2,11 @@ import React, { useState } from "react";
 
 import Button from "@mui/material/Button";
 import InputLabel from "@mui/material/InputLabel";
-import { NativeSelect } from "@mui/material";
+// import { NativeSelect } from "@mui/material";
 import Switch from "@mui/material/Switch";
 import TextField from "@mui/material/TextField";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 
 import "./style.css";
@@ -26,9 +28,17 @@ function CadastroCliente() {
   const [city, setCity] = useState("");
   const [uf, setUf] = useState("");
   const [toggle, setToggle] = useState(false);
-  const [especialidadade, setEspecialidade] = useState("");
+  const [specialtyType, setSpecialtyType] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  const handleChange = (event) => {
+    setSpecialtyType(event.target.value);
+  };
+
+  const handleChangeDistrict = (event) => {
+    setDistrict(event.target.value);
+  };
 
   const handleSignup = () => {
     if (
@@ -52,7 +62,7 @@ function CadastroCliente() {
     }
   };
 
-  async function cadastrarCustomer(e) {
+  async function cadastrar(e) {
     e.preventDefault();
     const novoCustomer = {
       name: name,
@@ -68,16 +78,16 @@ function CadastroCliente() {
         cep: cep,
         district: district,
         city: city,
-        uf: uf
-      }
-    }
+        uf: uf,
+      },
+    };
     const novoProvider = {
       name: name,
-      genre: genre,
-      phone: phone,
       email: email,
       password: password,
-      confirmPassword: confirmPassword,
+      genre: genre,
+      cpf: cpf,
+      phone: phone,
       address: {
         street: street,
         streetNumber: streetNumber,
@@ -85,29 +95,35 @@ function CadastroCliente() {
         cep: cep,
         district: district,
         city: city,
-        uf: uf
+        uf: uf,
       },
-      especialidadade: especialidadade
-    }
+      specialtyType: specialtyType,
+    };
 
-  if (!toggle) {
-    handleSignup();
-    await api.post(`http://localhost:8080/customers`, novoCustomer).then((resposta) => {
-      if(resposta.status === 201){
-        alert("Cliente cadastrado com sucesso")
-        navigate("/")
-      }
-    }).catch((erro) => console.log(erro))
-  } else {
-    handleSignup();
-    await api.post(`http://localhost:8080/providers`, novoProvider).then((resposta) => {
-      if(resposta.status === 201){
-        alert("Prestador cadastrado com sucesso")
-        navigate("/")
-      }
-    }).catch((erro) => console.log(erro))
+    if (!toggle) {
+      handleSignup();
+      await api
+        .post(`http://localhost:8080/customers`, novoCustomer)
+        .then((resposta) => {
+          if (resposta.status === 201) {
+            alert("Cliente cadastrado com sucesso");
+            navigate("/");
+          }
+        })
+        .catch((erro) => console.log(erro));
+    } else {
+      handleSignup();
+      await api
+        .post(`http://localhost:8080/providers`, novoProvider)
+        .then((resposta) => {
+          if (resposta.status === 201) {
+            alert("Prestador cadastrado com sucesso");
+            navigate("/");
+          }
+        })
+        .catch((erro) => console.log(erro));
+    }
   }
-}
 
   return (
     <>
@@ -135,11 +151,16 @@ function CadastroCliente() {
               onChange={(e) => [setName(e.target.value), setError("")]}
             />
             <TextField
-              sx={{ input: { "::placeholder": { color: "#051951" } } }}
-              placeholder="Gênero"
+            select
+
               value={genre}
-              onChange={(e) => [setGenre(e.target.value.toUpperCase()), setError("")]}
-            />
+              label="Especialidade"
+              onChange={(e) => [setGenre(e.target.value), setError("")]}
+            >
+              <MenuItem value={"MALE"}>Masculino</MenuItem>
+              <MenuItem value={"FEMALE"}>Feminino</MenuItem>
+              <MenuItem value={"OTHER"}>Outros</MenuItem>
+            </TextField>
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               placeholder="CPF"
@@ -199,15 +220,17 @@ function CadastroCliente() {
                 placeholder="N°"
                 id="numero"
                 value={streetNumber}
-              onChange={(e) => [setStreetNumber(e.target.value), setError("")]}
+                onChange={(e) => [
+                  setStreetNumber(e.target.value),
+                  setError(""),
+                ]}
               />
               <TextField
                 sx={{ input: { "::placeholder": { color: "#051951" } } }}
-                type="Number"
                 placeholder="Cidade°"
                 id="numero"
                 value={city}
-              onChange={(e) => [setCity(e.target.value), setError("")]}
+                onChange={(e) => [setCity(e.target.value), setError("")]}
               />
             </div>
 
@@ -224,11 +247,42 @@ function CadastroCliente() {
               onChange={(e) => [setDistrict(e.target.value), setError("")]}
             />
             <TextField
-              sx={{ input: { "::placeholder": { color: "#051951" } } }}
-              placeholder="UF"
+            sx={{ input: { "::placeholder": { color: "#051951", display: "flex", flexDirection: "column" } } }}
+              fullWidth
+              select
               value={uf}
-              onChange={(e) => [setUf(e.target.value.toUpperCase()), setError("")]}
-            />
+              onChange={(e) => [setUf(e.target.value), setError("")]}
+              label="Estado"
+            >
+              <MenuItem value="AC">Acre</MenuItem>
+              <MenuItem value="AL">Alagoas</MenuItem>
+              <MenuItem value="AP">Amapá</MenuItem>
+              <MenuItem value="AM">Amazonas</MenuItem>
+              <MenuItem value="BA">Bahia</MenuItem>
+              <MenuItem value="CE">Ceará</MenuItem>
+              <MenuItem value="DF">Distrito Federal</MenuItem>
+              <MenuItem value="ES">Espírito Santo</MenuItem>
+              <MenuItem value="GO">Goiás</MenuItem>
+              <MenuItem value="MA">Maranhão</MenuItem>
+              <MenuItem value="MT">Mato Grosso</MenuItem>
+              <MenuItem value="MS">Mato Grosso do Sul</MenuItem>
+              <MenuItem value="MG">Minas Gerais</MenuItem>
+              <MenuItem value="PA">Pará</MenuItem>
+              <MenuItem value="PB">Paraíba</MenuItem>
+              <MenuItem value="PR">Paraná</MenuItem>
+              <MenuItem value="PE">Pernambuco</MenuItem>
+              <MenuItem value="PI">Piauí</MenuItem>
+              <MenuItem value="RJ">Rio de Janeiro</MenuItem>
+              <MenuItem value="RN">Rio Grande do Norte</MenuItem>
+              <MenuItem value="RS">Rio Grande do Sul</MenuItem>
+              <MenuItem value="RO">Rondônia</MenuItem>
+              <MenuItem value="RR">Roraima</MenuItem>
+              <MenuItem value="SC">Santa Catarina</MenuItem>
+              <MenuItem value="SP">São Paulo</MenuItem>
+              <MenuItem value="SE">Sergipe</MenuItem>
+              <MenuItem value="TO">Tocantins</MenuItem>
+              <MenuItem value="EX">Estrangeiro</MenuItem>
+            </TextField>
             {toggle && (
               <div
                 style={{
@@ -241,25 +295,33 @@ function CadastroCliente() {
               >
                 <h1>Dados Profissionais</h1>
                 <InputLabel>Especialidade</InputLabel>
-                <NativeSelect
+                <Select
                   style={{
                     width: "100%",
                     border: "1px solid grey",
                     gap: "12px",
                   }}
-                  value={especialidadade}
-                  onChange={(e) => [setEspecialidade(e.target.value), setError("")]}
+                  value={specialtyType}
+                  label="Especialidade"
+                  onChange={(e) => [
+                    setSpecialtyType(e.target.value),
+                    setError(""),
+                  ]}
                 >
-                  <option value={10}>Serviços Hidraulicos</option>
-                  <option value={20}>Serviços Elétricos</option>
-                  <option value={30}>Serviços Gerais</option>
-                </NativeSelect>
+                  <option value={"PLUMBER"}>Encanador</option>
+                  <option value={"ELECTRICIAN"}>Eletricista</option>
+                  <option value={"GENERAL_SERVICES"}>Serviços Gerais</option>
+                </Select>
               </div>
             )}
             <div>
-            <Button onClick={cadastrarCustomer} variant="contained" style={{ backgroundColor: "#f18f01", width: "100%" }}>
-              Cadastre-se
-            </Button>
+              <Button
+                onClick={cadastrar}
+                variant="contained"
+                style={{ backgroundColor: "#f18f01", width: "100%" }}
+              >
+                Cadastre-se
+              </Button>
             </div>
           </div>
         </div>
