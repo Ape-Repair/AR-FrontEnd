@@ -1,14 +1,13 @@
 import React from "react";
-import Header from "../components/header";
-import NavBar from "../components/navbar";
+
+import NavBarPrestador from "../components/navbarPrestador";
 import Servico from "../components/servico";
 
 function ServicosDisponiveis() {
 
     return (
         <>
-            <Header />
-            <NavBar />
+            <NavBarPrestador />
             <Servico/>
 
         </>

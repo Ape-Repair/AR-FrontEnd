@@ -1,14 +1,14 @@
 import React from "react";
-import Header from "../components/header";
-import NavBar from "../components/navbar";
+
 import MatchesCliente from "../components/matchesCliente";
+import NavBarCliente from "../components/navbarCliente";
 
 function MatchCliente() {
 
     return (
         <>
-            <Header />
-            <NavBar />
+           
+            <NavBarCliente />
             <MatchesCliente/>
         </>
     )

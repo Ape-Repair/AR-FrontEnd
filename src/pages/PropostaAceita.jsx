@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../components/header";
-import NavBar from "../components/navbar";
+
+import NavBarPrestador from "../components/navbarPrestador";
 import PedidoAceito from "../components/pedidoAceito";
 
 function PropostaAceita() {
     return (<>
-            <Header />
-            <NavBar />
+           
+            <NavBarPrestador />
             <PedidoAceito/>
 
         </>)

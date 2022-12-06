@@ -3,8 +3,12 @@ import "./style.css";
 
 import TextField from "@mui/material/TextField";
 import CardServico from "../cardServico";
+import { useNavigate } from "react-router-dom";
+import Button from '@mui/material/Button';
+
 
 function PedidoAtual() {
+    const navigate = useNavigate();
 
     const id =  '111';
     const especialidade = 'Encanador';
@@ -23,8 +27,8 @@ function PedidoAtual() {
                     type="Number"
                     placeholder="EX: R$ 200,00"
                     id="Valor"
-
                 />
+                 <Button onClick={() => navigate("/proposta-aceita")} variant="contained" style={{ backgroundColor: "#f18f01", width: "20%", margin: "25px" }} >Enviar</Button>
             </div>
         </>
     )

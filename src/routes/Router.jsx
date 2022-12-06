@@ -17,15 +17,22 @@ function Router() {
         
         <BrowserRouter>
             <Routes>
+                {/* HomePage */}
                 <Route path="/" element={<HomePage/>}/>
                 <Route path="/cadastro" element={<Cadastrar/>}></Route>
+
+                {/* Ambos */}
                 <Route path="/historico" element={<Historico/>}></Route>
-                <Route path="/match-provedor" element={<MatchProvedor/>}></Route>
+
+                {/* Cliente */}
+                <Route path="/servico-cliente" element={<ServicosCliente/>}></Route>
                 <Route path="/match-cliente" element={<MatchCliente/>}></Route>
+                {/* Prestador */}
                 <Route path="/servico-disponivel" element={<ServicosDisponiveis/>}></Route>
                 <Route path="/pedido-escolhido" element={<PedidosEscolhido/>}></Route>
-                <Route path="/pedido-aceito" element={<PropostaAceita/>}></Route>
-                <Route path="/servico-cliente" element={<ServicosCliente/>}></Route>
+                <Route path="/match-provedor" element={<MatchProvedor/>}></Route>
+                <Route path="/proposta-aceita" element={<PropostaAceita/>}></Route>
+                
             </Routes>
         
         </BrowserRouter>

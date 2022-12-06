@@ -9,6 +9,12 @@
     gap: 8px;
 }
 
+
+.dadosPedidos{
+    width: 80%;
+}
+
 .dadosDeAtendimento{
-    width: 75%;
+    width: 95%;
+    font-size: medium;
 }

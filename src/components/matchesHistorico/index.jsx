@@ -3,7 +3,7 @@ import './style.css'
 import CardHistorico from '../card'
 
 function MatchesHistorico() {
-    const listaHistorico = [{nome : 'Atauine'}, {nome:'Gui'}];
+    const listaHistorico = [{nomeCliente : 'Atauine', nomeProvedor: 'gui', valor: '400,00', data: '19/02/2022', servico: 'Serviço Elétrico', funcionalidade: 'Encanador'}];
 
 
     return (
@@ -12,7 +12,7 @@ function MatchesHistorico() {
 
             <div className="matches">
                 <h1 className="match">Seus Matches</h1>
-                {listaHistorico.map((matches) => <CardHistorico nome={matches.nome}/>)}
+                {listaHistorico.map((x) => <CardHistorico nomeCliente={x.nomeCliente} nomeProvedor={x.nomeProvedor} valor={x.valor} data={x.data} servico={x.servico} funcionalidade={x.funcionalidade}/>)}
             </div>
         </>
     )

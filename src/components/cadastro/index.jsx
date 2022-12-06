@@ -6,6 +6,7 @@ import { NativeSelect } from "@mui/material";
 import Switch from "@mui/material/Switch";
 import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
+import InputMask from "react-input-mask";
 
 import "./style.css";
 import api from "../../api";
@@ -128,12 +129,14 @@ function CadastroCliente() {
           </div>
           <div className="cadastroCliente">
             <h1>Dados Pessoais</h1>
+            
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               placeholder="Nome"
               value={name}
               onChange={(e) => [setName(e.target.value), setError("")]}
             />
+            
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               placeholder="Gênero"
