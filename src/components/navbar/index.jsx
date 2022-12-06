@@ -1,17 +1,23 @@
 import React, { useState } from "react";
-import "./style.css";
-import logo from "../../assets/LogoApeRepair.png";
-import { useNavigate } from "react-router-dom";
 import api from "../../api";
+import logo from "../../assets/LogoApeRepair.png";
+import "./style.css";
+// import Alert from "@material-ui/lab/Alert";
 import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import Modal from "@mui/material/Modal";
 import Switch from "@mui/material/Switch";
-
+import TextField from "@mui/material/TextField";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
+  const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
+  const [formModalLogin, setFormModalLogin] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const boxLogin = {
     position: "absolute",
@@ -29,13 +35,6 @@ function NavBar() {
     gap: "12px",
   };
 
-  const navigate = useNavigate();
-  const [formModalLogin, setFormModalLogin] = useState(false);
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
   const handleLogin = () => {
     if (!email | !password) {
       setError("Preencha todos os campos");
@@ -47,27 +46,59 @@ function NavBar() {
   const login = async (evento) => {
     evento.preventDefault();
     const dados = {
-      email: evento.target.email.value,
-      password: evento.target.password.value,
+      email: email,
+      password: password,
+    };
+
+    if (!toggle) {
+      api
+        .post(`/customers/login`, dados)
+        .then((res) => {
+          handleLogin();
+          if (res.data.role === "CUSTOMER") {
+            sessionStorage.setItem("id", res.data.id);
+            sessionStorage.setItem("email", res.data.email);
+            sessionStorage.setItem("id", res.data.senha);
+            navigate("/match-cliente");
+          } else if (res.data.role === "ADMIN") {
+            sessionStorage.setItem("id", res.data.id);
+            sessionStorage.setItem("email", res.data.email);
+            sessionStorage.setItem("id", res.data.senha);
+            navigate("/");
+          } else {
+            navigate("/");
+          }
+          alert("logado");
+        })
+        .catch((erro) => {
+          alert("erro");
+        });
+    } else {
+    api
+      .post(`/providers/login`, dados)
+      .then((res) => {
+        handleLogin();
+        if (res.data.role === "PROVIDER") {
+          sessionStorage.setItem("id", res.data.id);
+          sessionStorage.setItem("email", res.data.email);
+          sessionStorage.setItem("id", res.data.senha);
+          navigate("/match-provedor");
+        } else if (res.data.role === "ADMIN") {
+          sessionStorage.setItem("id", res.data.id);
+          sessionStorage.setItem("email", res.data.email);
+          sessionStorage.setItem("id", res.data.senha);
+          navigate("/");
+        } else {
+          navigate("/");
+          // <Alert severity="error">This is an error alert — check it out!</Alert>
+        }
+        alert("logado");
+      })
+      .catch((erro) => {
+        alert("erro");
+      });
     }
-
-//providers/login
-//customers/login
-
-    api.post(`/login`, dados).then(res => {
-      if (res.data.role === "PROVIDER") {
-        sessionStorage.setItem("id", res.data.id)
-        navigate("/match-provedor");
-      } else {
-        sessionStorage.setItem("id", res.data.id)
-        navigate("/match-cliente");
-      }
-      alert("logado");
-    }).catch(erro => {
-      alert("erro")
-    });
   };
-
 
   return (
     <nav className="nav">
@@ -131,7 +162,7 @@ function NavBar() {
                 placeholder="Senha"
               />
               <Button
-                onClick={handleLogin}
+                onClick={login}
                 variant="contained"
                 style={{ backgroundColor: "#f18f01" }}
               >
@@ -141,7 +172,7 @@ function NavBar() {
           </Modal>
         </div>
       </div>
-    </nav >
+    </nav>
   );
 }
 
