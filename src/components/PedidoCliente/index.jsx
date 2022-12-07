@@ -11,14 +11,22 @@ import api from "../../api";
 
 function PedidoCliente() {
   const navigate = useNavigate();
-  const [value, setValue] = React.useState("female");
+  const [value, setValue] = useState("female");
+  const [description, setDescription] = useState("");
 
-  function novoPedido(evento) {
-    evento.preventDefault();
+  const handleChangeOption = (event) => {
+    setValue(event.target.value);
+  };
+
+  const handleChangeDescription = (event) => {
+    setDescription(event.target.value);
+  };
+
+  function novoPedido() {
     const novoServico = {
-      serviceType: evento.target.serviceType.value,
-      description: evento.target.description.value,
-      customerId: evento.target.customerId.value,
+      serviceType: value,
+      description: description,
+      customerId: Number(sessionStorage.getItem("id")),
     };
 
     api
@@ -46,17 +54,16 @@ function PedidoCliente() {
         }}
       >
         <RadioGroup
-          aria-label="gender"
-          name="gender1"
+          name="serviceType"
           value={value}
-          onChange={(e) => [setValue(e.target.value)]}
+          onChange={handleChangeOption}
           >
-          <FormControlLabel value="female" control={<Radio />} label="Female" />
-          <FormControlLabel value="male" control={<Radio />} label="Male" />
-          <FormControlLabel value="other" control={<Radio />} label="Other" />
+          <FormControlLabel value="E" control={<Radio />} label="Serviços Elétricos" />
+          <FormControlLabel value="male" control={<Radio />} label="Serviços Hidráulicos" />
+          <FormControlLabel value="GENERAL_SERVICES" control={<Radio />} label="Serviços Gerais" />
         </RadioGroup>
         <div>
-          <input name="description"></input>
+          <input onChange={handleChangeDescription} name="description"></input>
         </div>
         <button onClick={novoPedido}>Salvar</button>
       </div>

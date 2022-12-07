@@ -13,7 +13,7 @@ function PedidoAceito() {
 
             <div className="pedidoAceito">
                 <h1 className="">Proposta Aceita!</h1>
-                <Card nomeCliente={nomeC} nomeProvedor={nomeP} funcionalidade={funcionalidade} servico={servico} valor={valor} data={data} />
+                <Card nomeCliente={"nome"} nomeProvedor={"nome"} funcionalidade={"funcionalidade"} servico={"servico"} valor={"valor"} data={"data"} />
             </div>
         </>
     )
