@@ -9,6 +9,7 @@ import ServicosDisponiveis from "../pages/ServicosDisponiveis";
 import PedidosEscolhido from "../pages/PedidoEscolhido";
 import PropostaAceita from "../pages/PropostaAceita";
 import ServicosCliente from "../pages/ServicosCliente";
+import PedidoCliente from "../pages/PedidoCliente";
 
 
 function Router() {
@@ -26,6 +27,7 @@ function Router() {
                 <Route path="/pedido-escolhido" element={<PedidosEscolhido/>}></Route>
                 <Route path="/pedido-aceito" element={<PropostaAceita/>}></Route>
                 <Route path="/servico-cliente" element={<ServicosCliente/>}></Route>
+                <Route path="/pedido-cliente" element={<PedidoCliente/>}></Route>
             </Routes>
         
         </BrowserRouter>

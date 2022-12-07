@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/header";
 import NavBar from "../components/navbar";
-import DescricaoServico from "../components/descricaoServico";
+import DescricaoServico from "../components/PedidoCliente";
 
 function ServicosCliente(){
     return(<>

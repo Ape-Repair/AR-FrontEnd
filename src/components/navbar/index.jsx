@@ -58,12 +58,14 @@ function NavBar() {
           if (res.data.role === "CUSTOMER") {
             sessionStorage.setItem("id", res.data.id);
             sessionStorage.setItem("email", res.data.email);
-            sessionStorage.setItem("id", res.data.senha);
+            sessionStorage.setItem("senha", res.data.senha);
+            sessionStorage.setItem("role", res.data.role);
             navigate("/match-cliente");
           } else if (res.data.role === "ADMIN") {
             sessionStorage.setItem("id", res.data.id);
             sessionStorage.setItem("email", res.data.email);
-            sessionStorage.setItem("id", res.data.senha);
+            sessionStorage.setItem("senha", res.data.senha);
+            sessionStorage.setItem("role", res.data.role);
             navigate("/");
           } else {
             navigate("/");
@@ -81,12 +83,14 @@ function NavBar() {
         if (res.data.role === "PROVIDER") {
           sessionStorage.setItem("id", res.data.id);
           sessionStorage.setItem("email", res.data.email);
-          sessionStorage.setItem("id", res.data.senha);
+          sessionStorage.setItem("senha", res.data.senha);
+          sessionStorage.setItem("role", res.data.role);
           navigate("/match-provedor");
         } else if (res.data.role === "ADMIN") {
           sessionStorage.setItem("id", res.data.id);
           sessionStorage.setItem("email", res.data.email);
-          sessionStorage.setItem("id", res.data.senha);
+          sessionStorage.setItem("senha", res.data.senha);
+          sessionStorage.setItem("role", res.data.role);
           navigate("/");
         } else {
           navigate("/");
@@ -109,15 +113,6 @@ function NavBar() {
           <ul>
             <li onClick={() => navigate("/")}>
               <p>Home</p>
-            </li>
-            <li>
-              <p>Sobre</p>
-            </li>
-            <li>
-              <p>Equipe</p>
-            </li>
-            <li>
-              <p>Contato</p>
             </li>
             <li onClick={() => setFormModalLogin(true)}>
               <p>Login</p>

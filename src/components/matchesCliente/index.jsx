@@ -1,7 +1,7 @@
 import React from "react";
 import './style.css';
 import CardCliente from "../cardCliente"
-import SujestaoProvedores from "../sujestaoProvedores";
+import SugestaoProvedores from "../sugestaoProvedores";
 
 function MatchesCliente() {
     const prxListaProvide = ['a', 'b', 'c', 'd', 'e']
@@ -16,7 +16,7 @@ function MatchesCliente() {
                 <CardCliente />
                 <h1 className="match">Prestadores Disponiveis</h1>
                 <div className="provedoresSujestoes">
-                    {sugestions.map((x) => <SujestaoProvedores nome={x.nome} />)}
+                    {sugestions.map((x) => <SugestaoProvedores nome={x.nome} />)}
 
                 </div>
             </div>

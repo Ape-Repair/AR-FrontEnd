@@ -2,7 +2,7 @@ import React from "react";
 import './style.css';
 import Button from '@mui/material/Button';
 
-function SujestaoProvedores(props) {
+function SugestaoProvedores(props) {
 
     return (
         <>
@@ -24,4 +24,4 @@ function SujestaoProvedores(props) {
 
 }
 
-export default SujestaoProvedores;
+export default SugestaoProvedores;
