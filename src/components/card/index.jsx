@@ -19,7 +19,7 @@ function Card(props) {
                 </div>
             </div>
             <div className="dadosPedidos">
-                <h1 className="dadosDeAgendamento">{props.cardHistorico.nomeInformações}</h1>
+                <h1 className="dadosDeAgendamento">{props.servico} - R${props.valor} - {props.data}</h1>
             </div>
         </div>
 

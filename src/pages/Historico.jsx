@@ -1,14 +1,14 @@
 import React from "react";
-import Header from "../components/header";
+
 import Matches from "../components/matchesHistorico";
-import NavBar from "../components/navbar";
+import NavBarCliente from "../components/navbarCliente";
 
 function Historico() {
 
     return (
         <>
-            <Header />
-            <NavBar />
+           
+            <NavBarCliente />
             <Matches/>
         </>
     )

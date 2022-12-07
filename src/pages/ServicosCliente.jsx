@@ -1,15 +1,12 @@
 import React from "react";
-import Header from "../components/header";
-import NavBar from "../components/navbar";
+
+import NavBarCliente from "../components/navbarCliente";
 import DescricaoServico from "../components/PedidoCliente";
 
 function ServicosCliente(){
     return(<>
-
-        <Header/>
-        <NavBar/>
+        <NavBarCliente/>
         <DescricaoServico/>
-
     </>)
 }
 

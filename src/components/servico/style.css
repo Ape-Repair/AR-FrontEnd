@@ -11,3 +11,9 @@
 .organizaCard{
     display: flex;
 }
+
+.testandoWrap{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}

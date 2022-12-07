@@ -1,0 +1,32 @@
+.descricaoServico {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.checkboxDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: large;
+}
+
+.textArea {
+  width: 60%;
+  height: 50vh;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #051951;
+  padding: 10px;
+}
+

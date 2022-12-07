@@ -14,10 +14,10 @@ function CardCliente(props) {
                     </div>
                     <div className="dadosDeAtendimento">
                         <div className="dadosPedidos">
-                            <h1 className="dadosDeAgendamento">Informações</h1>
+                            <h1 className="dadosDeAgendamento">{props.servicoEscolhido}</h1>
                         </div>
-                        <p>Data: {props.data}</p>
-                        <p>Horário: {props.hora}</p>
+                        <p className="seuTempo">Descrição</p>
+                        <p>{props.descricao}</p>
                     </div>
                 </div>
             </div>
