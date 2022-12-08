@@ -150,7 +150,7 @@ function Perfil() {
                         {
                             editar ? (
                                 <>
-                                    <Button variant="contained" style={{ backgroundColor: "#f18f01" }} onClick={() => setEditar(false)}>Cancelar</Button>
+                                    <Button variant="contained" style={{ backgroundColor: "#f18f01" }} onChange={() => setHabilitar(!habilitar)}onClick={() => setEditar(false)}>Cancelar</Button>
                                     <Button variant="contained" style={{ backgroundColor: "#f18f01" }} onClick={() => setEditar(false)}>Salvar</Button>
                                 </>
                             ) : (
