@@ -1,34 +1,79 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
-import Button from '@mui/material/Button';
-import CardServico from "../cardServico"
+import Button from "@mui/material/Button";
+import CardServico from "../cardServico";
 import { useNavigate } from "react-router-dom";
+import api from "../../api";
 
 function Servico() {
+  const [listaServico, setListaServico] = useState([]);
+  var providerId = sessionStorage.getItem("id");
 
-    const servicos = [{ 'id': '111', 'especialidade': 'Encanador', 'descricao': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam eos sint sed dignissimos consectetur earum voluptatem ipsum modi aut. Quo necessitatibus quidem magni illum odit veniam facilis inventore? Labore, explicabo? magni illum odit veniam facilis inventore? Labore, explicabo? magni illum odit veniam facilis inventore? Labore, explicabo' }, { 'id': '111', 'especialidade': 'Encanador', 'descricao': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam eos sint sed dignissimos consectetur earum voluptatem ipsum modi aut. Quo necessitatibus quidem magni illum odit veniam facilis inventore? Labore, explicabo? magni illum odit veniam facilis inventore? Labore, explicabo? magni illum odit veniam facilis inventore? Labore, explicabo' }, { 'id': '111', 'especialidade': 'Encanador', 'descricao': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam eos sint sed dignissimos consectetur earum voluptatem ipsum modi aut. Quo necessitatibus quidem magni illum odit veniam facilis inventore? Labore, explicabo? magni illum odit veniam facilis inventore? Labore, explicabo? magni illum odit veniam facilis inventore? Labore, explicabo' }, { 'id': '111', 'especialidade': 'Encanador', 'descricao': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam eos sint sed dignissimos consectetur earum voluptatem ipsum modi aut. Quo necessitatibus quidem magni illum odit veniam facilis inventore? Labore, explicabo? magni illum odit veniam facilis inventore? Labore, explicabo? magni illum odit veniam facilis inventore? Labore, explicabo' }]
-    const navigate = useNavigate();
+  useEffect(() => {
+    api
+      .get(`providers/in/available-orders/${providerId}`)
+      .then((res) => {
+        console.log("dados:", res.data);
+        setListaServico(res.data);
+      })
+      .catch((erro) => {
+        console.log(erro);
+      });
+  }, [providerId]);
 
-    return (<>
-        <div className="separacao"></div>
-        <div className="telaServicos">
-            <h1 className="textoServico">
-                Serviços Disponiveis
-            </h1>
-            <div className="testandoWrap">
-                {servicos.map((x) =>
-                    <div className="servicosDisponiveis">
-                        <CardServico id={x.id} especialidade={x.especialidade} descricao={x.descricao} />
-                        <Button onClick={() => navigate("/pedido-escolhido")} variant="contained" style={{ backgroundColor: "#f18f01", width: "20%", margin: "25px" }} >Enviar</Button>
-                    </div>
-                )}
+  const navigate = useNavigate();
+  console.log(listaServico);
 
-            </div>
+  return (
+    <>
+      <div className="separacao"></div>
+      <div className="telaServicos">
+        <h1 className="textoServico">Serviços Disponiveis</h1>
+        <div className="testandoWrap">
+          {listaServico.map((servicoAtual) => {
+            console.log(servicoAtual);
+            return (
+              <div className="servicosDisponiveis">
+                <div className="cardServico">
+                  <p
+                    className="id"
+                    value={servicoAtual.orderId}
+                  >
+                    ID: {servicoAtual.orderId}
+                  </p>
+                  <div className="cardDescricaoServico">
+                    <h3
+                      className="especialidadeCardServico"
+                      value={servicoAtual.serviceType}
+                    >
+                      {servicoAtual.serviceType}
+                    </h3>
+                    <h2 className="descricaoCardServico">Descrição</h2>
+                    <p
+                      value={servicoAtual.description}
+                    >
+                      {servicoAtual.description}
+                    </p>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => navigate("/pedido-escolhido/")}
+                  variant="contained"
+                  style={{
+                    backgroundColor: "#f18f01",
+                    width: "20%",
+                    margin: "25px",
+                  }}
+                >
+                  Enviar
+                </Button>
+              </div>
+            );
+          })}
         </div>
-
-
-    </>)
-
+      </div>
+    </>
+  );
 }
 
 export default Servico;

@@ -58,8 +58,8 @@ function PedidoCliente() {
           value={value}
           onChange={handleChangeOption}
           >
-          <FormControlLabel value="E" control={<Radio />} label="Serviços Elétricos" />
-          <FormControlLabel value="male" control={<Radio />} label="Serviços Hidráulicos" />
+          <FormControlLabel value="ELECTRICIAN" control={<Radio />} label="Serviços Elétricos" />
+          <FormControlLabel value="PLUMBER" control={<Radio />} label="Serviços Hidráulicos" />
           <FormControlLabel value="GENERAL_SERVICES" control={<Radio />} label="Serviços Gerais" />
         </RadioGroup>
         <div>

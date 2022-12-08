@@ -30,7 +30,7 @@ function MatchesProvedores() {
             <div className="separacao"></div>
 
             <div className="matches">
-                <h1 className="match">Matchs Pendentes</h1>
+                <h1 className="match">Matchs Disponíveis</h1>
                 {listaHistorico.map((x) => <Card nomeCliente={x.nome} onClick={() => setInfoCliente(true)} />)
                 }
             </div>

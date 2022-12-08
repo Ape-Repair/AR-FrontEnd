@@ -49,10 +49,8 @@ function MatchesHistorico() {
 
       <div className="matches">
         <h1 className="match">Seus Matches</h1>
-        {cardList.map((list) => (
-          // <React.Fragment key={musicaAtual.id}>
+        {cardList.map(list => (
           <Card cardHistorico={list} />
-          // </React.Fragment
         ))}
       </div>
     </>

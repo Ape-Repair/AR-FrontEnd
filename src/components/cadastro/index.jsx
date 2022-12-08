@@ -145,19 +145,18 @@ function CadastroCliente() {
           </div>
           <div className="cadastroCliente">
             <h1>Dados Pessoais</h1>
-            
+
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               placeholder="Nome"
               value={name}
               onChange={(e) => [setName(e.target.value), setError("")]}
             />
-            
-            <TextField
-            select
 
+            <TextField
+              select
               value={genre}
-              label="Especialidade"
+              label="Gênero"
               onChange={(e) => [setGenre(e.target.value), setError("")]}
             >
               <MenuItem value={"MALE"}>Masculino</MenuItem>
@@ -250,7 +249,15 @@ function CadastroCliente() {
               onChange={(e) => [setDistrict(e.target.value), setError("")]}
             />
             <TextField
-            sx={{ input: { "::placeholder": { color: "#051951", display: "flex", flexDirection: "column" } } }}
+              sx={{
+                input: {
+                  "::placeholder": {
+                    color: "#051951",
+                    display: "flex",
+                    flexDirection: "column",
+                  },
+                },
+              }}
               fullWidth
               select
               value={uf}
@@ -298,23 +305,29 @@ function CadastroCliente() {
               >
                 <h1>Dados Profissionais</h1>
                 <InputLabel>Especialidade</InputLabel>
-                <Select
-                  style={{
-                    width: "100%",
-                    border: "1px solid grey",
-                    gap: "12px",
+                <TextField
+                  sx={{
+                    input: {
+                      "::placeholder": {
+                        color: "#051951",
+                        display: "flex",
+                        flexDirection: "column",
+                      },
+                    },
                   }}
+                  fullWidth
+                  select
                   value={specialtyType}
-                  label="Especialidade"
                   onChange={(e) => [
                     setSpecialtyType(e.target.value),
                     setError(""),
                   ]}
+                  label="Especialidade"
                 >
-                  <option value={"PLUMBER"}>Encanador</option>
-                  <option value={"ELECTRICIAN"}>Eletricista</option>
-                  <option value={"GENERAL_SERVICES"}>Serviços Gerais</option>
-                </Select>
+                  <MenuItem value={"PLUMBER"}>Encanador</MenuItem>
+                  <MenuItem value={"ELECTRICIAN"}>Eletricista</MenuItem>
+                  <MenuItem value={"GENERAL_SERVICES"}>Serviços Gerais</MenuItem>
+                </TextField>
               </div>
             )}
             <div>
