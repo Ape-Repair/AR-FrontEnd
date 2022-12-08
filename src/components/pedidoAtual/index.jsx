@@ -6,33 +6,36 @@ import TextField from "@mui/material/TextField";
 import CardServico from "../cardServico";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
+import { useAuth } from "../../Context";
 
 function PedidoAtual() {
   const navigate = useNavigate();
-  const [orderId, setOrderId] = useState("");
-  const [serviceType, setServiceType] = useState("");
-  const [description, setDescription] = useState("");
-  const [dados, setDados] = useState([]);
-
+  const [valor, setValor] = useState(0);
   var providerId = sessionStorage.getItem("id");
 
-  useEffect(() => {
-    api
-      .get(`providers/in/available-orders/${providerId}`)
-      .then((res) => {
-        console.log("dadosnovos:", res.data);
-        setDados(res.data);
-      })
-      .catch((erro) => {
-        console.log(erro);
-    });
-}, [providerId]);
+  
+  function createOrder (order) {
+    const novaProposta = {
+      orderId: order.orderId,
+      providerId: providerId,
+      amount: valor
+    }
 
-  const id = "111";
-  const especialidade = "Encanador";
-  const descricao =
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam eos sint sed dignissimos consectetur earum voluptatem ipsum modi aut. Quo necessitatibus quidem magni illum odit veniam facilis inventore? Labore, explicabo? magni illum odit veniam facilis inventore? Labore, explicabo? magni illum odit veniam facilis inventore? Labore, explicabo";
+    console.log("entrou na function")
+    if(valor > 0 && valor !== ""){
+      api.post("/providers/in/create-proposal", novaProposta).then(res => {
+        console.log(res.data)
+        alert("proposta criada!");
+        navigate("/match-cliente");
+      }).catch(erro => {
+        alert("erro")
+      });
+    }
+  }
 
+  const { pedidoAtual } = useAuth();
+
+  const dadosFormatado = JSON.parse(pedidoAtual)
   return (
     <>
       <div className="separacao"></div>
@@ -41,25 +44,22 @@ function PedidoAtual() {
         <div className="cardServico">
           <p
             className="id"
-            value={dados.orderId}
-            onChange={(e) => [setOrderId(e.target.value)]}
+            value={dadosFormatado.orderId}
           >
-            ID: {dados.orderId}
+            ID: {dadosFormatado.orderId}
           </p>
           <div className="cardDescricaoServico">
             <h3
               className="especialidadeCardServico"
-              value={serviceType}
-              onChange={(e) => [setServiceType(e.target.value)]}
+              value={dadosFormatado.serviceType}
             >
-              {especialidade}
+              {dadosFormatado.serviceType}
             </h3>
             <h2 className="descricaoCardServico">Descrição</h2>
             <p
-              value={description}
-              onChange={(e) => [setDescription(e.target.value)]}
+              value={dadosFormatado.description}
             >
-              {descricao}
+              {dadosFormatado.description}
             </p>
           </div>
         </div>
@@ -69,10 +69,11 @@ function PedidoAtual() {
           className="teste"
           type="Number"
           placeholder="EX: R$ 200,00"
+          onChange={(e) => [setValor(e.target.value)]}
           id="Valor"
         />
         <Button
-          onClick={() => navigate("/proposta-aceita")}
+          onClick={() => createOrder(dadosFormatado)}
           variant="contained"
           style={{ backgroundColor: "#f18f01", width: "20%", margin: "25px" }}
         >

@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 
 import api from "../../api";
 import "./style.css";
+import { useAuth } from "../../Context";
 
 function Servico() {
   const [listaServico, setListaServico] = useState([]);
@@ -21,7 +22,16 @@ function Servico() {
       });
   }, [providerId]);
 
+  
   const navigate = useNavigate();
+  const {atualizarPedidoAtual} = useAuth();
+
+
+  const handleNavigate = (order) => {
+    atualizarPedidoAtual(JSON.stringify(order))
+    navigate("/pedido-escolhido")
+  }
+
   console.log(listaServico);
 
   return (
@@ -57,7 +67,7 @@ function Servico() {
                   </div>
                 </div>
                 <Button
-                  onClick={() => navigate("/pedido-escolhido")}
+                  onClick={()=>handleNavigate(servicoAtual)}
                   variant="contained"
                   style={{
                     backgroundColor: "#f18f01",
