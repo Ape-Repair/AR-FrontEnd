@@ -25,7 +25,7 @@ function NavBarCliente() {
                             <p >Matches</p>
                         </li>
                         <li>
-                            <p>Logout</p>
+                            <p onClick={() => navigate("/")}>Logout</p>
                         </li>
                     </ul>
 

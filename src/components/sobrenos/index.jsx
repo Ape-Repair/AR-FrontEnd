@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import HandymanIcon from '@mui/icons-material/Handyman';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
-import SquareFootIcon from '@mui/icons-material/SquareFoot';
+// import SquareFootIcon from '@mui/icons-material/SquareFoot';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Button from '@mui/material/Button';
 
@@ -30,7 +30,7 @@ function SobreNos() {
                 </div>
                 <hr />
                 <div className="info">
-                    <SquareFootIcon style={{ color: "#F18F01", fontSize: "310%" }} />
+                    {/* <SquareFootIcon style={{ color: "#F18F01", fontSize: "310%" }} /> */}
                     <p className="numDado">800+</p>
                     <p className="conteudo">Metros quadrados já reformados.</p>
                 </div>

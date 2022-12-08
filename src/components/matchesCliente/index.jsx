@@ -50,7 +50,6 @@ function MatchesCliente() {
                 <h1 className="match">Propostas Disponíveis</h1>
                 <div className="provedoresSujestoes">
                     {paginados.map((x) => <SujestaoProvedores nome={x.nomePrestador} valor={x.valor} uf={x.uf}/>)}
-
                 </div>
                 <Pagination style={{color: "#fff", backgroundColor: "#3161e3b5", padding: '3px', borderRadius: '10px'}}  count={calcPag} onChange={paginaEspecifica} page={pagina} shape="rounded" color={'primary'} />
             </div>
