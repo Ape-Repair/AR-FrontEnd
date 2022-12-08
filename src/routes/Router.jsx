@@ -33,7 +33,7 @@ function Router() {
                 <Route path="/perfil-cliente" element={<PerfilCliente/>}></Route>
                 {/* Prestador */}
                 <Route path="/servico-disponivel" element={<ServicosDisponiveis/>}></Route>
-                <Route path="/pedido-escolhido/:id/:userId" element={<PedidosEscolhido/>}></Route>
+                <Route path="/pedido-escolhido" element={<PedidosEscolhido/>}></Route>
                 <Route path="/match-provedor" element={<MatchProvedor/>}></Route>
                 <Route path="/proposta-aceita" element={<PropostaAceita/>}></Route>
                 <Route path="/perfil-prestador" element={<PerfilPrestador/>}></Route>
