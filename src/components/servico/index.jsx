@@ -57,7 +57,7 @@ function Servico() {
                   </div>
                 </div>
                 <Button
-                  onClick={() => navigate("/pedido-escolhido/")}
+                  onClick={() => navigate("/pedido-escolhido")}
                   variant="contained"
                   style={{
                     backgroundColor: "#f18f01",

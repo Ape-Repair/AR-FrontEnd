@@ -73,7 +73,7 @@ function NavBar() {
           alert("logado");
         })
         .catch((erro) => {
-          alert("erro");
+          console.log("erro");
         });
     } else {
     api
@@ -85,7 +85,7 @@ function NavBar() {
           sessionStorage.setItem("email", res.data.email);
           sessionStorage.setItem("senha", res.data.senha);
           sessionStorage.setItem("role", res.data.role);
-          navigate("/match-provedor");
+          navigate("/servico-disponivel");
         } else if (res.data.role === "ADMIN") {
           Number(sessionStorage.setItem("id", res.data.id));
           sessionStorage.setItem("email", res.data.email);
@@ -99,7 +99,7 @@ function NavBar() {
         alert("logado");
       })
       .catch((erro) => {
-        alert("erro");
+        console.log("erro");
       });
     }
   };
