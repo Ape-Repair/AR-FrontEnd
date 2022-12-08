@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import './style.css';
 import CardCliente from "../cardCliente"
-import SujestaoProvedores from "../sugestaoProvedores";
+import SugestaoProvedores from "../sugestaoProvedores";
 import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+
 
 
 const paginacao = (array, limite, deslocamento) => {
@@ -49,7 +49,8 @@ function MatchesCliente() {
                 <CardCliente nome={nomeCliente} servicoEscolhido={servicoEscolhido} descricao={descricao} />
                 <h1 className="match">Propostas Disponíveis</h1>
                 <div className="provedoresSujestoes">
-                    {paginados.map((x) => <SujestaoProvedores nome={x.nomePrestador} valor={x.valor} uf={x.uf}/>)}
+                    {paginados.map((x) => <SugestaoProvedores nome={x.nomePrestador} valor={x.valor} uf={x.uf}/>)}
+                
 
                 </div>
                 <Pagination style={{color: "#fff", backgroundColor: "#3161e3b5", padding: '3px', borderRadius: '10px'}}  count={calcPag} onChange={paginaEspecifica} page={pagina} shape="rounded" color={'primary'} />
