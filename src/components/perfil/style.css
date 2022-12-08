@@ -4,12 +4,16 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    
 }
 
 .perfilForm {
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 100%;
+    margin: 10px;
+    gap: 20px;
 }
 
 .fotoPerfil {
@@ -23,4 +27,24 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
+}
+
+.testetext {
+    width: 100%;
+}
+
+.testetexta{
+    width:10%;
+}
+
+.infoPerfilUf{
+    display: flex;
+    gap: 19px;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.formBonito{
+    width: 50%;
 }

@@ -33,6 +33,8 @@ function CadastroCliente() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  console.log({ cpf: cpf.replace(/\./g, '').replace(/\-/g, '') });
+
   const handleChange = (event) => {
     setSpecialtyType(event.target.value);
   };
@@ -70,13 +72,13 @@ function CadastroCliente() {
       email: email,
       password: password,
       genre: genre,
-      cpf: cpf,
-      phone: phone,
+      cpf: cpf.replace(/\./g, '').replace(/\-/g, ''),
+      phone: phone.replace(/\./g, '').replace(/\-/g, ''),
       address: {
         street: street,
         streetNumber: streetNumber,
         complement: complement,
-        cep: cep,
+        cep: cep.replace(/\./g, '').replace(/\-/g, ''),
         district: district,
         city: city,
         uf: uf,
@@ -87,13 +89,13 @@ function CadastroCliente() {
       email: email,
       password: password,
       genre: genre,
-      cpf: cpf,
-      phone: phone,
+      cpf: cpf.replace(/\./g, '').replace(/\-/g, ''),
+      phone: phone.replace(/\./g, '').replace(/\-/g, ''),
       address: {
         street: street,
         streetNumber: streetNumber,
         complement: complement,
-        cep: cep,
+        cep: cep.replace(/\./g, '').replace(/\-/g, ''),
         district: district,
         city: city,
         uf: uf,
@@ -124,6 +126,7 @@ function CadastroCliente() {
         })
         .catch((erro) => console.log(erro));
     }
+
   }
 
   return (
@@ -163,18 +166,23 @@ function CadastroCliente() {
               <MenuItem value={"FEMALE"}>Feminino</MenuItem>
               <MenuItem value={"OTHER"}>Outros</MenuItem>
             </TextField>
-            <TextField
-              sx={{ input: { "::placeholder": { color: "#051951" } } }}
-              placeholder="CPF"
-              value={cpf}
-              onChange={(e) => [setCpf(e.target.value), setError("")]}
-            />
-            <TextField
-              sx={{ input: { "::placeholder": { color: "#051951" } } }}
-              placeholder="Telefone"
-              value={phone}
-              onChange={(e) => [setPhone(e.target.value), setError("")]}
-            />
+            <InputMask mask="999.999.999-99" value={cpf}
+              onChange={(e) => [setCpf(e.target.value), setError("")]}>
+
+              <TextField
+                sx={{ input: { "::placeholder": { color: "#051951" } } }}
+                placeholder="CPF"
+              />
+
+            </InputMask>
+            <InputMask mask="(99)99999-9999" value={phone}
+              onChange={(e) => [setPhone(e.target.value), setError("")]}>
+              <TextField
+                sx={{ input: { "::placeholder": { color: "#051951" } } }}
+                placeholder="Telefone"
+
+              />
+            </InputMask>
             <TextField
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               placeholder="E-Mail"
@@ -199,12 +207,14 @@ function CadastroCliente() {
               ]}
             />
             <h1>Residência</h1>
-            <TextField
-              sx={{ input: { "::placeholder": { color: "#051951" } } }}
-              placeholder="CEP"
-              value={cep}
-              onChange={(e) => [setCep(e.target.value), setError("")]}
-            />
+            <InputMask mask="99999-999" value={cep}
+              onChange={(e) => [setCep(e.target.value), setError("")]}>
+              <TextField
+                sx={{ input: { "::placeholder": { color: "#051951" } } }}
+                placeholder="CEP"
+
+              />
+            </InputMask>
             <div className="ruaNumero">
               <TextField
                 sx={{

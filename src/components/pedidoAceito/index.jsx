@@ -13,10 +13,10 @@ function PedidoAceito() {
             <div className="separacao"></div>
 
             <div className="pedidoAceito">
-                <h1 className="">Proposta Aceita!</h1>
+                <h1 className="options">Proposta Aceita!</h1>
                 <Card />
-                <h1>Quem é o cliente?</h1>
-                <ClienteAceito/>
+                <h1 className="options">Quem é o cliente?</h1>
+                <ClienteAceito />
             </div>
         </>
     )
