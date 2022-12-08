@@ -19,6 +19,9 @@ function DescricaoServico() {
         setValue(event.target.value);
     };
 
+    id.onClick = novoPedido;
+    id.onClick = () => navigate("/match-cliente");
+
     function novoPedido() {
         const novoServico = {
             serviceType: value,
@@ -60,7 +63,7 @@ function DescricaoServico() {
                 </div>
                 <h1 className="options">Descreva Seu Problema :</h1>
                 <textarea onChange={handleChangeDescription} maxLength={345} className="textArea" placeholder="Descreva Seu Problema Aqui!" variant="outlined" />
-                <Button onClick={() => navigate("/match-cliente")} variant="contained" style={{ backgroundColor: "#f18f01", margin: "10px", width: "25%" }}>Enviar</Button>
+                <Button id="enviar"  variant="contained" style={{ backgroundColor: "#f18f01", margin: "10px", width: "25%" }}>Enviar</Button>
             </div>
         </>
     )
