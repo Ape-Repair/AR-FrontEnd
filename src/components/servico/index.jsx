@@ -15,6 +15,7 @@ function Servico() {
       .get(`providers/in/available-orders/${providerId}`)
       .then((res) => {
         console.log("dados:", res.data);
+        sessionStorage.setItem("orderId", res.data.orderId);
         setListaServico(res.data);
       })
       .catch((erro) => {

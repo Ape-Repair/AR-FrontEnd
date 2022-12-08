@@ -66,7 +66,7 @@ function MatchesCliente() {
                     <CardCliente nome={ordemAtual?.customerId?.name} servicoEscolhido={ordemAtual.serviceType} descricao={ordemAtual.description} />
                     <h1 className="match">Propostas Disponíveis</h1>
                     <div className="provedoresSujestoes">
-                        <SugestaoProvedores nome={ordemAtual.providerId.name ?? "Derli"} valor={ordemAtual.amount ?? 100} uf={ordemAtual.providerId.uf ?? "SP"} />
+                        <SugestaoProvedores orderId = {ordemAtual.orderId} />
 
                     </div>
                     {/* <Pagination style={{color: "#fff", backgroundColor: "#3161e3b5", padding: '3px', borderRadius: '10px'}}  count={calcPag} onChange={paginaEspecifica} page={pagina} shape="rounded" color={'primary'} /> */}

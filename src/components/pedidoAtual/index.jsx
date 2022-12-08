@@ -25,6 +25,7 @@ function PedidoAtual() {
     if(valor > 0 && valor !== ""){
       api.post("/providers/in/create-proposal", novaProposta).then(res => {
         console.log(res.data)
+        console.log(sessionStorage.setItem("OrderId"), res.data.orderId)
         alert("proposta criada!");
         navigate("/match-cliente");
       }).catch(erro => {
