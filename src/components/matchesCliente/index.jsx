@@ -60,13 +60,13 @@ function MatchesCliente() {
     return (
         <>
             <div className="separacao"></div>
-            {listaOrdem.map(ordemAtual => (
+            {listaOrdem?.map(ordemAtual => (
                 <div className="clienteDiv">
                     <h1 className="match">Escolha Seu Match</h1>
                     <CardCliente nome={ordemAtual?.customerId?.name} servicoEscolhido={ordemAtual.serviceType} descricao={ordemAtual.description} />
                     <h1 className="match">Propostas Disponíveis</h1>
                     <div className="provedoresSujestoes">
-                        <SugestaoProvedores orderId = {ordemAtual.orderId} />
+                        <SugestaoProvedores orderId={ordemAtual?.orderId} />
 
                     </div>
                     {/* <Pagination style={{color: "#fff", backgroundColor: "#3161e3b5", padding: '3px', borderRadius: '10px'}}  count={calcPag} onChange={paginaEspecifica} page={pagina} shape="rounded" color={'primary'} /> */}

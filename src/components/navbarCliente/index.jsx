@@ -6,6 +6,14 @@ import { useNavigate } from "react-router-dom";
 
 function NavBarCliente() {
     const navigate = useNavigate();
+    function logout(){
+        sessionStorage.removeItem("email")
+        sessionStorage.removeItem("id")
+        sessionStorage.removeItem("orderId")
+        sessionStorage.removeItem("role")
+        sessionStorage.removeItem("senha")
+        navigate("/")
+    }
 
 
     return (
@@ -25,7 +33,7 @@ function NavBarCliente() {
                             <p >Matches</p>
                         </li>
                         <li>
-                            <p onClick={() => navigate("/")}>Logout</p>
+                            <p onClick={logout}>Logout</p>
                         </li>
                     </ul>
 

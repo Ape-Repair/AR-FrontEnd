@@ -7,6 +7,14 @@ import { useNavigate } from "react-router-dom";
 function NavBarPrestador() {
     const navigate = useNavigate();
 
+    function logout(){
+        sessionStorage.removeItem("email")
+        sessionStorage.removeItem("id")
+        sessionStorage.removeItem("orderId")
+        sessionStorage.removeItem("role")
+        sessionStorage.removeItem("senha")
+        navigate("/")
+    }
 
     return (
         <nav className="nav">
@@ -25,7 +33,7 @@ function NavBarPrestador() {
                             <p >Matches</p>
                         </li>
                         <li>
-                            <p>Logout</p>
+                            <p onClick={logout}>Logout</p>
                         </li>
                     </ul>
 

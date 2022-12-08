@@ -240,6 +240,8 @@ function CadastroCliente() {
               sx={{ input: { "::placeholder": { color: "#051951" } } }}
               placeholder="Complemento"
               value={complement}
+              helperText={complement.length > 0 && complement.length < 3 ? "Complemento precisa ter ao mínimo 3 carcteres." : null}
+              error={complement.length > 0 && complement.length < 3}
               onChange={(e) => [setComplement(e.target.value), setError("")]}
             />
             <TextField

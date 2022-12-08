@@ -4,6 +4,7 @@ const AuthContext = createContext({});
 
 export const Match = ({ children }) => {
   const [pedidoAtual, setPedidoAtual] = useState({});
+  const [pago, setPago] = useState({});
 
 //   useEffect(() => {
 //     const storagedUser = sessionStorage.getItem('usuario');
@@ -24,6 +25,11 @@ export const Match = ({ children }) => {
 //     sessionStorage.removeItem('usuario');
 //   }
 
+    function setPagamento(amount, description){
+      console.log(amount)
+      setPago({amount: amount, description: description})
+    }
+
      function atualizarPedidoAtual(order) {
         alert(order)
         setPedidoAtual(order);
@@ -31,7 +37,7 @@ export const Match = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ atualizarPedidoAtual, pedidoAtual }}
+      value={{ atualizarPedidoAtual, pedidoAtual, setPagamento, pago }}
     >
       {children}
     </AuthContext.Provider>

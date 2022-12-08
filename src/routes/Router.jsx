@@ -13,6 +13,7 @@ import PedidoCliente from "../pages/PedidoCliente";
 import PerfilCliente from "../pages/PerfilCliente";
 import PerfilPrestador from "../pages/PerfilPrestador";
 import { Match } from "../Context";
+import PaginaPaypal from "../components/sugestaoProvedores/PaginaPaypal";
 
 function Router() {
   return (
@@ -30,6 +31,7 @@ function Router() {
           <Route path="/servico-cliente" element={<ServicosCliente />}></Route>
           <Route path="/match-cliente" element={<MatchCliente />}></Route>
           <Route path="/perfil-cliente" element={<PerfilCliente />}></Route>
+          <Route path="/pagamento" element={<PaginaPaypal />}></Route>
           {/* Prestador */}
           <Route
             path="/servico-disponivel"

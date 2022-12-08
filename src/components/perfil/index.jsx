@@ -7,20 +7,23 @@ import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 
 function Perfil() {
-  const [perfil, setPerfil] = useState([]);
-  var providerId = Number(sessionStorage.getItem("id"));
+  const [perfil, setPerfil] = useState();
+  var id = Number(sessionStorage.getItem("id"));
+  const role = sessionStorage.getItem("role");
+  const validaUsuario = role == "CUSTOMER" ? `customers/${id}` : `providers/${id}`
 
   useEffect(() => {
     api
-      .get(`providers/${providerId}`)
-      .then((res) => {
-        console.log("dados:", res.data);
-        setPerfil(res.data);
-      })
-      .catch((erro) => {
-        console.log(erro);
-      });
-  }, [providerId]);
+    .get(validaUsuario)
+    .then((res) => {
+          console.log("dados:", res.data);
+          setPerfil(res.data);
+        })
+        .catch((erro) => {
+          console.log(erro);
+        });
+  }, [validaUsuario]);
+
   return (
     <>
       <div className="separacao"></div>
@@ -34,36 +37,33 @@ function Perfil() {
           />
         </div>
         <div className="perfilForm">
-          {perfil.map((perfilAtual) => {
-            return (
-                <>
               <TextField
                 sx={{ input: { "::placeholder": { color: "#051951" } } }}
                 placeholder="Nome"
-                value={perfilAtual.name}
+                value={perfil?.name}
                 disabled
               />
               <TextField
                 sx={{ input: { "::placeholder": { color: "#051951" } } }}
                 placeholder="E-Mail"
-                value={perfilAtual.email}
+                value={perfil?.email}
               />
               <TextField
                 sx={{ input: { "::placeholder": { color: "#051951" } } }}
                 placeholder="Endereço"
-                value={perfilAtual.address}
+                value={perfil?.address.street}
               />
               <TextField
                 sx={{ input: { "::placeholder": { color: "#051951" } } }}
                 placeholder="Telefone"
-                value={perfilAtual.phone}
+                value={perfil?.phone}
               />
               <div className=""></div>
               <TextField
                 sx={{ input: { "::placeholder": { color: "#051951" } } }}
                 placeholder="Cidade°"
                 id="numero"
-                value={perfilAtual.city}
+                value={perfil?.address.city}
               />
               <TextField
                 sx={{
@@ -77,7 +77,7 @@ function Perfil() {
                 }}
                 fullWidth
                 select
-                value={perfilAtual.uf}
+                value={perfil?.uf}
                 // onChange={(e) => [setUf(e.target.value), setError("")]}
                 label="Estado"
               >
@@ -109,11 +109,7 @@ function Perfil() {
                 <MenuItem value="SE">Sergipe</MenuItem>
                 <MenuItem value="TO">Tocantins</MenuItem>
                 <MenuItem value="EX">Estrangeiro</MenuItem>
-              </TextField>
-              </>
-              );
-          })}
-          ;
+              </TextField>              
           <div>
             <Button variant="contained" style={{ backgroundColor: "#f18f01" }}>
               Cancelar
