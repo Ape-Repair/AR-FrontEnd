@@ -1,0 +1,26 @@
+.perfil {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.perfilForm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fotoPerfil {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.imgIconP {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}

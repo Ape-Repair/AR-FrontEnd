@@ -18,7 +18,7 @@ function NavBarPrestador() {
                         <li onClick={() => navigate("/servico-disponivel")}>
                             <p>Serviços Disponiveis</p>
                         </li>
-                        <li>
+                        <li onClick={() => navigate("/perfil-prestador")}>
                             <p>Perfil</p>
                         </li>
                         <li onClick={() => navigate("/historico")}>

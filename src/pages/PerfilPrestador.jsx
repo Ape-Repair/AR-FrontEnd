@@ -1,16 +1,16 @@
 import React from "react";
 
 import NavBarPrestador from "../components/navbarPrestador";
-import PedidoAtual from "../components/pedidoAtual"
+import Perfil from "../components/perfil";
 
-function PedidosEscolhidos() {
+function PerfilPrestador() {
     return (
         <>
            
             <NavBarPrestador/>
-            <PedidoAtual/>
+            <Perfil/>
         </>
     )
 }
 
-export default PedidosEscolhidos;
+export default PerfilPrestador;

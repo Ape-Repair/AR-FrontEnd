@@ -18,7 +18,7 @@ function NavBarCliente() {
                         <li onClick={() => navigate("/servico-cliente")}>
                             <p>Novo Serviço</p>
                         </li>
-                        <li>
+                        <li onClick={() => navigate("/perfil-cliente")}>
                             <p>Perfil</p>
                         </li>
                         <li onClick={() => navigate("/historico")}>
