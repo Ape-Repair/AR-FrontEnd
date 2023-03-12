@@ -1,4 +1,4 @@
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+/*import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 export default function App() {
     return (
@@ -24,4 +24,4 @@ export default function App() {
             />
         </PayPalScriptProvider>
     );
-}
+}*/
