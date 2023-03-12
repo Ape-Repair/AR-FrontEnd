@@ -2,12 +2,12 @@
 .card {
     background-color: #FFF;
     width: 50%;
-    border-radius: 50px;
-    padding: 12px;
+    border-radius: 3.125rem; /* 50/16 = 3.125rem */
+    padding: 0.75rem; /* 12/16 = 0.75rem */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem; /* 8/16 = 0.5rem */
 }
 
 .informacoes{
@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    gap: 6.25rem;
 }
 
 .contribuintes{
