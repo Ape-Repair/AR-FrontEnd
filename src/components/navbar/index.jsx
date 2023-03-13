@@ -26,13 +26,12 @@ function NavBar() {
     transform: "translate(-50%, -50%)",
     width: 400,
     bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
     p: 4,
     display: "flex",
     flexDirection: "column",
     padding: "32px",
     gap: "12px",
+    borderRadius: "5%"
   };
 
   const handleLogin = () => {
@@ -123,8 +122,6 @@ function NavBar() {
           </ul>
 
           <Modal
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
             open={formModalLogin}
             onClose={() => setFormModalLogin(false)}
           >
