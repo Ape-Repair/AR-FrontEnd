@@ -1,70 +1,97 @@
+/* Styles for screens larger than 768px */
 .nav {
-    width: 100%;
-    height: 10vh;
-    background-color: #051951;
-    
+  width: 100%;
+  height: 10vh;
+  background-color: #051951;
 }
 
-.navbar{
-    padding: 0px 10%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.navbar {
+  padding: 0px 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.logo{
-    height: 100%;
-    
+.logo {
+  height: 100%;
 }
 
-.navegacao{
-    height: 100%;
-    width: 70%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+.navegacao {
+  height: 100%;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 ul {
-    list-style-type: none;
-    overflow: hidden;
-    align-items: center;
+  list-style-type: none;
+  overflow: hidden;
+  align-items: center;
+}
+
+li {
+  float: left;
+}
+
+li p {
+  display: flex;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+li p:hover {
+  background-color: #111;
+}
+
+.toggleLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.toggleModificarEntrada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-size: small;
+}
+
+/* Styles for screens smaller than or equal to 768px */
+@media (max-width: 768px) {
+  .nav {
+    height: auto;
+    padding: 1rem;
   }
-  
-  li {
-    float: left;
+
+  .navbar {
+    padding: 0;
+    flex-direction: column;
   }
-  
+
+  .logo {
+    margin-bottom: 1rem;
+    height: 10vh;
+  }
+
+  .navegacao {
+    width: 100%;
+    justify-content: center;
+  }
+
   li p {
-    display: flex;
-    color: white;
-    text-align: center;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  li p:hover {
-    background-color: #111;
+    padding: 5px 10px;
   }
 
-  .toggleLogin {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    justify-content: space-between;
-  }
-
+  .toggleLogin,
   .toggleModificarEntrada {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    font-size: small;
+    padding: 0;
+    font-size: x-small;
   }
-
-
-
-   
+}

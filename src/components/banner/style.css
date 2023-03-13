@@ -1,4 +1,5 @@
-.banner{
+/* Styles for screens larger than 768px */
+.banner {
     background-color: brown;
     width: 100%;
     height: 80vh;
@@ -6,32 +7,55 @@
     background-image: url('../../assets/banner3.png');
     background-repeat: no-repeat;
     background-size: cover;
-    
-}
-
-.informations{
+  }
+  
+  .informations {
     padding: 10% 10%;
-}
-
-.options{
+  }
+  
+  .options {
     color: #fff;
-}
-
-.icon{
+  }
+  
+  .icon {
     color: #f18f01;
-}
-
-.demostracao{
+  }
+  
+  .demostracao {
     width: 40%;
-}
-
-.textoCentral{
-     font-size: 300%;
-     color: #fff;
-}
-
-.seuTempo {
+  }
+  
+  .textoCentral {
+    font-size: 300%;
+    color: #fff;
+  }
+  
+  .seuTempo {
     color: #f18f01;
-}
-
-
+  }
+  
+  /* Styles for screens smaller than or equal to 768px */
+  @media (max-width: 768px) {
+    .banner {
+      height: auto;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .demostracao {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  
+    .textoCentral {
+      font-size: 200%;
+      text-align: center;
+    }
+  
+    .informations {
+      padding: 2rem;
+      text-align: center;
+    }
+  }
