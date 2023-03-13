@@ -104,7 +104,7 @@ function CadastroCliente() {
     if (!toggle) {
       handleSignup();
       await api
-        .post(`http://52.204.111.84:8080/customers`, novoCustomer)
+        .post(`/customers`, novoCustomer)
         .then((resposta) => {
           if (resposta.status === 201) {
             alert("Cliente cadastrado com sucesso");
@@ -115,7 +115,7 @@ function CadastroCliente() {
     } else {
       handleSignup();
       await api
-        .post(`http://52.204.111.84:8080/providers`, novoProvider)
+        .post(`/providers`, novoProvider)
         .then((resposta) => {
           if (resposta.status === 201) {
             alert("Prestador cadastrado com sucesso");

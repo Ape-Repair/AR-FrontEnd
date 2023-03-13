@@ -12,7 +12,7 @@ function Servico() {
 
   useEffect(() => {
     api
-      .get(`providers/in/available-orders/${providerId}`)
+      .get(`/providers/in/available-orders/${providerId}`)
       .then((res) => {
         console.log("dados:", res.data);
         sessionStorage.setItem("orderId", res.data.orderId);
