@@ -126,6 +126,19 @@ function CadastroCliente() {
     }
   }
 
+  const checkCEP = (e) => {
+    const cep = e.target.value.replace(/\D/g, '');
+    console.log(cep);
+    fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
+      console.log(data);
+      // register({ name: 'address', value: data.logradouro });
+      setStreet(data.logradouro);
+      setDistrict(data.bairro);
+      setCity(data.localidade);
+      setUf(data.uf);
+    });
+  }
+
   return (
     <>
       <div className="separacao"></div>
@@ -204,6 +217,7 @@ function CadastroCliente() {
               placeholder="CEP"
               value={cep}
               onChange={(e) => [setCep(e.target.value), setError("")]}
+              onBlur={checkCEP}
             />
             <div className="ruaNumero">
               <TextField
