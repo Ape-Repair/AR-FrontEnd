@@ -12,7 +12,7 @@ function MatchesHistorico() {
     function CardProvider() {
       const id = sessionStorage.getItem("id");
       api
-        .get(`http://52.204.111.84:8080/providers/${id}/orders`)
+        .get(`/providers/${id}/orders`)
         .then((res) => {
           console.log("dadosProv:", res.data);
           setCardList(res.data);

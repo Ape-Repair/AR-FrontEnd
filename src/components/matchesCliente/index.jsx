@@ -26,7 +26,7 @@ function MatchesCliente() {
 
 
     useEffect(() => {
-        api.get(`http://52.204.111.84:8080/customers/${customerId}/orders`).then(res => {
+        api.get(`/customers/${customerId}/orders`).then(res => {
             console.log("dados:", res.data);
             console.log("status code:", res.status);
             setListaOrdem(res.data);

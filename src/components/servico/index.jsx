@@ -12,7 +12,7 @@ function Servico() {
 
   useEffect(() => {
     api
-      .get(`http://52.204.111.84:8080/providers/in/available-orders/${providerId}`)
+      .get(`/providers/in/available-orders/${providerId}`)
       .then((res) => {
         console.log("dados:", res.data);
         sessionStorage.setItem("orderId", res.data.orderId);

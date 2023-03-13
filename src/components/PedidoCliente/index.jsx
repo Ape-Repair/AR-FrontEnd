@@ -30,7 +30,7 @@ function PedidoCliente() {
     };
 
     api
-      .post("http://52.204.111.84:8080/customers/in/create-order", novoServico)
+      .post("/customers/in/create-order", novoServico)
       .then((res) => {
         alert("criado");
         console.log(res.data)
