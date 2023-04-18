@@ -77,7 +77,7 @@ function SugestaoProvedores(props) {
                         <div className="escolhaDePrestadores">
                             <img
                                 className="imgIcons"
-                                src="https://cea.vtexassets.com/arquivos/ids/39468553/Sacola-Ecobag-Bob-Esponja-e-Patrick-de-Lona-Verde-9992511-Verde_2.jpg?v=637578106438700000"
+                                src="https://static.vecteezy.com/ti/fotos-gratis/p3/7209151-feliz-homem-empregador-tem-conversa-telefone-com-colega-olhar-fora-sorri-com-prazer-veste-terno-formal-e-gravata-conectado-a-roaming-enquanto-faz-viagem-de-negocios-poses-contra-fundo-azul-gratis-foto.jpg"
                                 alt=""
                             />
                             <div className="dadosProvedor">
